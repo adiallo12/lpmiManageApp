@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'login.dart';
+import 'login_screen.dart';
 
 class IntroductionScreen extends StatefulWidget {
   const IntroductionScreen({super.key});
@@ -16,23 +16,28 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Image(image: AssetImage("assets/images/logoUB.png"),),
+            const Image(
+              image: AssetImage("assets/images/logoUB.png"),
+            ),
             const Text(
               'Licence LPMI 2023-2024',
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder:(context) => const LoginScreen()),);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginScreen()),
+                );
               },
               child: const Text('Go to page 1'),
             ),
             ElevatedButton(
-              onPressed: () {
-              },
+              onPressed: () {},
               child: const Text('Go to page 2 '),
             ),
           ],
         ),
       ),
-    );  }
+    );
+  }
 }

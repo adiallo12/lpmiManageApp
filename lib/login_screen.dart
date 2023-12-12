@@ -28,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   border: OutlineInputBorder(
                     borderSide: BorderSide(width: 100),
                   ),
-                  labelText: 'Username',
+                  labelText: 'Username ',
                 ),
               ),
             ),
@@ -48,12 +48,15 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const SizedBox(height: 50),
             ElevatedButton(
-              onPressed: () {},
+              onPressed:() {
+              },
               child: const Text('Connexion'),
             ),
             const SizedBox(height: 10),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
               child: const Text("S'inscire"),
             )
           ],

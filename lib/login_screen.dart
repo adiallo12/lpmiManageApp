@@ -37,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const SizedBox(
               width: 300,
-              child:  TextField(
+              child: TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderSide: BorderSide(width: 100),
@@ -48,8 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const SizedBox(height: 50),
             ElevatedButton(
-              onPressed:() {
-              },
+              onPressed: () {},
               child: const Text('Connexion'),
             ),
             const SizedBox(height: 10),

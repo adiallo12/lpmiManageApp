@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ElevatedButton(onPressed: () {}, child: const Text("Se connecter"), style: ElevatedButton.styleFrom(foregroundColor: Colors.orange),),
+                        ElevatedButton(onPressed: () {}, child: const Text("Se connecter !"), style: ElevatedButton.styleFrom(foregroundColor: Colors.orange),),
                       ]
                   ),
                   const SizedBox(height:10),

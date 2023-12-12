@@ -91,7 +91,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   },
                   child: const Text("S'inscrire"),
                 ),
-                const SizedBox(height: 40),
+                const SizedBox(height: 42),
                 TextButton(
                   onPressed: () {
                     Navigator.push(

@@ -18,7 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const Image(
               image: AssetImage("assets/images/logoUB.png"),
             ),
-            SizedBox(
+            const SizedBox(
               height: 100,
             ),
             const SizedBox(
@@ -32,12 +32,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             const SizedBox(
               width: 300,
-              child: const TextField(
+              child:  TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderSide: BorderSide(width: 100),
@@ -46,17 +46,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             ElevatedButton(
               onPressed: () {},
               child: const Text('Connexion'),
-
             ),
-      SizedBox(height: 10),
-      ElevatedButton(
-        onPressed: () {},
-        child: const Text("S'inscire"),
-      )
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text("S'inscire"),
+            )
           ],
         ),
       ),

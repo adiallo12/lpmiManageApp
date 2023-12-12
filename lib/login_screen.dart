@@ -17,35 +17,28 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   Image.asset("assets/images/logoUB.png", width: 150),
                   const Text("Se connecter",
-                    style: TextStyle(fontSize: 25,
-                      decoration: TextDecoration.underline,
-                      decorationColor: Colors.orange,
-                      color: Colors.orange,
-                    ),
+                    style: TextStyle(fontSize: 25, decoration: TextDecoration.underline, decorationColor: Colors.orange, color: Colors.orange,),
                   ),
                   const SizedBox(height:20),
                   const SizedBox(width: 300,
-                    child: TextField(decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: "Email")
-                  ),),
+                    child: TextField(decoration: InputDecoration(border: OutlineInputBorder(), labelText: "Email")),
+                  ),
                   const SizedBox(height:10),
                   const SizedBox(width: 300,
-                    child: TextField(decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: "Mot de passe")
-                    ),),
+                    child: TextField(decoration: InputDecoration(border: OutlineInputBorder(), labelText: "Mot de passe")),
+                  ),
                   const SizedBox(height:20),
 
                   Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ElevatedButton(onPressed: () {},
-                          child: const Text("Se connecter"),
-                          style: ElevatedButton.styleFrom(foregroundColor: Colors.orange),
-                        ),
+                        ElevatedButton(onPressed: () {}, child: const Text("Se connecter"), style: ElevatedButton.styleFrom(foregroundColor: Colors.orange),),
                       ]
-                  )
+                  ),
+                  const SizedBox(height:10),
+                  const Text("Pas de compte ? S'inscrire !",
+                    style: TextStyle(fontSize: 15, decoration: TextDecoration.underline, decorationColor: Colors.orange, color: Colors.orange,),
+                  ),
                 ]
             )
         )

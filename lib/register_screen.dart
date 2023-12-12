@@ -30,6 +30,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
             const SizedBox(height: 16.0),
             TextFormField(
               decoration: const InputDecoration(
+                labelText: 'Prénom',
+                border: OutlineInputBorder(),
+                contentPadding: EdgeInsets.all(12.0),
+              ),
+            ),
+            const SizedBox(height: 16.0),
+            TextFormField(
+              decoration: const InputDecoration(
                 labelText: 'Adresse e-mail',
                 border: OutlineInputBorder(),
                 contentPadding: EdgeInsets.all(12.0),
@@ -94,7 +102,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => IntroductionScreen()),
+                  MaterialPageRoute(builder: (context) => const IntroductionScreen()),
                 );
               },
               child: const Text('Vous avez déjà un compte ? Connectez-vous'),

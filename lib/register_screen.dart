@@ -12,8 +12,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+    
       appBar: AppBar(
         title: const Text('Inscription'),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -38,7 +40,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               decoration: InputDecoration(labelText: 'Confirmation Mot de passe'),
               obscureText: true,
             ),
-            const SizedBox(height: 16.0), 
+            const SizedBox(height: 16.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -52,7 +54,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   },
                 ),
                 const Text('Homme'),
-                const SizedBox(width: 16.0), 
+                const SizedBox(width: 16.0),
                 Radio(
                   value: 'Femme',
                   groupValue: _selectedGender,
@@ -65,7 +67,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 const Text('Femme'),
               ],
             ),
-            const SizedBox(height: 16.0), // Espace entre les boutons radios et le bouton d'inscription
+            const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
                 // Ajoutez ici le code pour traiter l'inscription
@@ -73,7 +75,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               },
               child: const Text('S\'inscrire'),
             ),
-            const SizedBox(height: 16.0), // Espace entre le bouton d'inscription et le bouton de retour
+            const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -83,10 +85,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
               },
               child: const Text('Vous avez déjà un compte ? Connectez-vous'),
             ),
+            const SizedBox(height: 16.0),
           ],
         ),
       ),
     );
   }
 }
-

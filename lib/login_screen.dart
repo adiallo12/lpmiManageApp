@@ -15,21 +15,25 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Image.asset("assets/images/logoUB.png", width: 150),
                   const Text("Se connecter",
                     style: TextStyle(fontSize: 25,
-                      color: Colors.red,
+                      color: Colors.orange,
                     ),
                   ),
-                  const SizedBox(height:250),
-                  const TextField(decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: "Email")
-                  ),
                   const SizedBox(height:20),
-                  const TextField(decoration: InputDecoration(
+                  const SizedBox(width: 300,
+                    child: TextField(decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: "Mot de passe")
-                  ),
+                      labelText: "Email")
+                  ),),
+                  const SizedBox(height:20),
+                  const SizedBox(width: 300,
+                    child: TextField(decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: "Mot de passe")
+                    ),),
+
 
                   Row(
                       mainAxisAlignment: MainAxisAlignment.center,

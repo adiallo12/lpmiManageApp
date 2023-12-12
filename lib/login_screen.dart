@@ -14,13 +14,14 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Center(
         child: Column(
           children: [
+            const SizedBox(height: 50),
             const Text("Login", 
               style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold
+                fontSize: 24, 
+                fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 300),
+            const SizedBox(height: 250),
             const SizedBox(
               width: 300,
               child: TextField(
@@ -35,6 +36,8 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(
               width: 300,
               child: TextField(
+                obscureText: true,
+                obscuringCharacter: 'a',
                 decoration: InputDecoration(
                   labelText: 'password',
                   contentPadding: EdgeInsets.symmetric(horizontal: 15.0),

@@ -23,7 +23,7 @@ class LoginState extends State < Login > {
           children: [
             const Text(
                 'Login',
-                style: TextStyle(fontSize: 30),
+                style: TextStyle(fontSize: 30,color:Colors.white),
               ),
               const SizedBox(height: 20),
 
@@ -59,11 +59,12 @@ class LoginState extends State < Login > {
 
                     ),
                     const SizedBox(height: 20),
-                      ElevatedButton(onPressed: () {}, child: const Text("se connecter")),
+                      ElevatedButton(onPressed: () {}, child: const Text("se connecter",),),
                       const SizedBox(height: 40),
 
                         const Text(
                           'pas de comptes, inscrivez-vous',
+                          style: TextStyle(fontSize: 15,color:Colors.white),
                         ),
 
 

@@ -18,6 +18,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   Image.asset("assets/images/logoUB.png", width: 150),
                   const Text("Se connecter",
                     style: TextStyle(fontSize: 25,
+                      decoration: TextDecoration.underline,
+                      decorationColor: Colors.orange,
                       color: Colors.orange,
                     ),
                   ),

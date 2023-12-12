@@ -61,6 +61,23 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 const Spacer(flex: 1),
+                const Row(
+                  children: [
+                    Text("Genre : "),
+                    Radio(
+                      value: 0,
+                      groupValue: 0,
+                      onChanged: null,
+                    ),
+                    Text("Homme"),
+                    Radio(
+                      value: 1,
+                      groupValue: 0,
+                      onChanged: null,
+                    ),
+                    Text("Femme"),
+                  ],
+                ),
                 ButtonBar(
                   children: [
                     ElevatedButton(

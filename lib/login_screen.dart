@@ -33,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             SizedBox(
-              height: 50,
+              height: 30,
             ),
             const SizedBox(
               width: 300,
@@ -52,9 +52,10 @@ class _LoginScreenState extends State<LoginScreen> {
               child: const Text('Connexion'),
 
             ),
+      SizedBox(height: 10),
       ElevatedButton(
         onPressed: () {},
-        child: const Text('Sinscire'),
+        child: const Text("S'inscire"),
       )
           ],
         ),

@@ -28,7 +28,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 width: 350,
                                 child: TextFormField(
                                     decoration: const InputDecoration(
-                                        labelText: 'Prénom',
+                                        labelText: 'Nom',
                                         border: OutlineInputBorder(),
                                     ),
                                 ),
@@ -40,7 +40,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 width: 350,
                                 child: TextFormField(
                                     decoration: const InputDecoration(
-                                        labelText: 'Nom',
+                                        labelText: 'Prénom',
                                         border: OutlineInputBorder(),
                                     ),
                                 ),
@@ -104,6 +104,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             },
                             child: const Text('S\'inscrire'),
                         ),
+                        const SizedBox(height: 100),
+                        const Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                                Text("Vous avez déjà un compte ?"),
+                                TextButton(
+                                    onPressed: null,
+                                    child: Text("Se connecter"),
+                                )
+                            ])
                     ],
                 ),
             ),

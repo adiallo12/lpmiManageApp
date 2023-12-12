@@ -14,53 +14,70 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Inscription'),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Nom',
-                border: OutlineInputBorder(),
-                contentPadding: EdgeInsets.all(12.0),
+            const SizedBox(height: 10.0),
+            SizedBox(
+              width: 300.0, // Ajustez la largeur comme souhaité
+              child: TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Nom',
+                  border: OutlineInputBorder(),
+                  contentPadding:  EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
+                ),
               ),
             ),
             const SizedBox(height: 16.0),
-            TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Prénom',
-                border: OutlineInputBorder(),
-                contentPadding: EdgeInsets.all(12.0),
+            SizedBox(
+              width: 300.0, // Ajustez la largeur comme souhaité
+              child: TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Prénom',
+                  border: OutlineInputBorder(),
+                  contentPadding:  EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
+                ),
               ),
             ),
             const SizedBox(height: 16.0),
-            TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Adresse e-mail',
-                border: OutlineInputBorder(),
-                contentPadding: EdgeInsets.all(12.0),
+            SizedBox(
+              width: 300.0, // Ajustez la largeur comme souhaité
+              child: TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Adresse e-mail',
+                  border: OutlineInputBorder(),
+                  contentPadding:  EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
+                ),
+                keyboardType: TextInputType.emailAddress,
               ),
-              keyboardType: TextInputType.emailAddress,
             ),
             const SizedBox(height: 16.0),
-            TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Mot de passe',
-                border: OutlineInputBorder(),
-                contentPadding: EdgeInsets.all(12.0),
+            SizedBox(
+              width: 300.0, // Ajustez la largeur comme souhaité
+              child: TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Mot de passe',
+                  border: OutlineInputBorder(),
+                  contentPadding:  EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
+                ),
+                obscureText: true,
               ),
-              obscureText: true,
             ),
             const SizedBox(height: 16.0),
-            TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Confirmation Mot de passe',
-                border: OutlineInputBorder(),
-                contentPadding: EdgeInsets.all(12.0),
+            SizedBox(
+              width: 300.0, // Ajustez la largeur comme souhaité
+              child: TextFormField(
+                decoration: const  InputDecoration(
+                  labelText: 'Confirmation Mot de passe',
+                  border: OutlineInputBorder(),
+                  contentPadding:  EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
+                ),
+                obscureText: true,
               ),
-              obscureText: true,
             ),
             const SizedBox(height: 16.0),
             Row(
@@ -98,7 +115,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: const Text('S\'inscrire'),
             ),
             const SizedBox(height: 16.0),
-            ElevatedButton(
+            TextButton(
               onPressed: () {
                 Navigator.push(
                   context,

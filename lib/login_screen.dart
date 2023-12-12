@@ -26,12 +26,17 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 40.0),
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: 'Email',
-                prefixIcon: Icon(Icons.email),
-                border: OutlineInputBorder(),
-              ),
+            SizedBox(
+                width: 100, // Largeur souhaitée du champ de texte
+                child:Center (
+                child: TextFormField(
+                    decoration: InputDecoration(
+                    labelText: 'Email',
+                    prefixIcon: Icon(Icons.email),
+                    border: OutlineInputBorder(),
+                    ),
+                ),
+                ),
             ),
             SizedBox(height: 20.0),
             TextFormField(

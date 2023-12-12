@@ -20,7 +20,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
               image: AssetImage("assets/images/logoUB.png"),
             ),
             const Text(
-              'Licence LPMI 2023-2024',
+              'Licence LPMI  2023-2024',
             ),
             ElevatedButton(
               onPressed: () {

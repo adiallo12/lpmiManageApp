@@ -92,16 +92,18 @@ class _SignUpPageState extends State<SignUpPage> {
                               fontSize: 16,
                               fontWeight: FontWeight.bold)),
                     ),
-                    ElevatedButton(
-                      onPressed: null,
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 5),
-                      ),
-                      child: Text("Annuler"),
-                    ),
                   ],
                 ),
+                const SizedBox(height: 100),
+                const Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text("Vous avez déjà un compte ?"),
+                      TextButton(
+                        onPressed: null,
+                        child: Text("Se connecter"),
+                      )
+                    ])
               ],
             ),
           ),

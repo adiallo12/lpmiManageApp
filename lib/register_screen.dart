@@ -72,7 +72,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               width: 300.0, // Ajustez la largeur comme souhaité
               child: TextFormField(
                 decoration: const  InputDecoration(
-                  labelText: 'Confirmation Mot de passe',
+                  labelText: 'Confirmation du mot de passe',
                   border: OutlineInputBorder(),
                   contentPadding:  EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
                 ),

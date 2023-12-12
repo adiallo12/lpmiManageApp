@@ -8,16 +8,28 @@ class LoginScreen extends StatelessWidget {
         centerTitle: true,
         title: Text('Connexion'),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Image.asset("assets/images/logoUB.png", width: 100),
+            SizedBox(height: 50),
+            Container(
+              width: 150,
+              height: 150,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/logoUB.png"),
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+            SizedBox(height: 40.0),
             TextFormField(
               decoration: InputDecoration(
                 labelText: 'Email',
+                prefixIcon: Icon(Icons.email),
                 border: OutlineInputBorder(),
               ),
             ),
@@ -26,6 +38,7 @@ class LoginScreen extends StatelessWidget {
               obscureText: true,
               decoration: InputDecoration(
                 labelText: 'Mot de passe',
+                prefixIcon: Icon(Icons.lock),
                 border: OutlineInputBorder(),
               ),
             ),
@@ -41,7 +54,10 @@ class LoginScreen extends StatelessWidget {
               onPressed: () {
                 // Action à effectuer pour rediriger vers la page d'inscription
               },
-              child: Text("Vous n'avez pas de compte ? Inscrivez-vous ici."),
+              child: Text(
+                "Vous n'avez pas de compte ? Inscrivez-vous ici.",
+                style: TextStyle(color: Colors.blue),
+              ),
             ),
           ],
         ),
@@ -49,3 +65,4 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
+

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lpmi/introduction_screen.dart';
-import 'package:lpmi/loginScreen.dart';
+import 'package:lpmi/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'LPMI Manage',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        scaffoldBackgroundColor: Color.fromARGB(255, 84, 239, 17),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 84, 239, 17),
         useMaterial3: true,
         
       ),

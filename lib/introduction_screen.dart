@@ -19,13 +19,13 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
             const Image(
               image: AssetImage("assets/images/logoUB.png"),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             const Text(
               'Licence LPMI  2023-2024',
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             ElevatedButton(

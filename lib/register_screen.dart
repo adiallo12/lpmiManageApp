@@ -12,32 +12,46 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    
       appBar: AppBar(
         title: const Text('Inscription'),
-        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const TextField(
-              decoration: InputDecoration(labelText: 'Nom'),
+            TextFormField(
+              decoration: const InputDecoration(
+                labelText: 'Nom',
+                border: OutlineInputBorder(),
+                contentPadding: EdgeInsets.all(12.0),
+              ),
             ),
             const SizedBox(height: 16.0),
-            const TextField(
-              decoration: InputDecoration(labelText: 'Adresse e-mail'),
+            TextFormField(
+              decoration: const InputDecoration(
+                labelText: 'Adresse e-mail',
+                border: OutlineInputBorder(),
+                contentPadding: EdgeInsets.all(12.0),
+              ),
               keyboardType: TextInputType.emailAddress,
             ),
             const SizedBox(height: 16.0),
-            const TextField(
-              decoration: InputDecoration(labelText: 'Mot de passe'),
+            TextFormField(
+              decoration: const InputDecoration(
+                labelText: 'Mot de passe',
+                border: OutlineInputBorder(),
+                contentPadding: EdgeInsets.all(12.0),
+              ),
               obscureText: true,
             ),
             const SizedBox(height: 16.0),
-            const TextField(
-              decoration: InputDecoration(labelText: 'Confirmation Mot de passe'),
+            TextFormField(
+              decoration: const InputDecoration(
+                labelText: 'Confirmation Mot de passe',
+                border: OutlineInputBorder(),
+                contentPadding: EdgeInsets.all(12.0),
+              ),
               obscureText: true,
             ),
             const SizedBox(height: 16.0),
@@ -80,7 +94,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const IntroductionScreen()),
+                  MaterialPageRoute(builder: (context) => IntroductionScreen()),
                 );
               },
               child: const Text('Vous avez déjà un compte ? Connectez-vous'),

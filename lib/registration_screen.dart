@@ -61,7 +61,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
                 ),
-                child: const Text("S'inscrire"))
+                child: const Text("S'inscrire")),
+            TextButton(
+              onPressed: () {},
+              child: Text('Déja un compte ? Se connecter'),
+            ),
           ],
         ),
       ),

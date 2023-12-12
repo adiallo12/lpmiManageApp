@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lpmi/connexion_screen.dart';
 import 'package:lpmi/introduction_screen.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const IntroductionScreen(),
+      home: const ConnexionScreen(),
     );
   }
 }

@@ -24,10 +24,10 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
             const SizedBox(height: 50,),
             ElevatedButton(
               onPressed: () {},
-              child: const Text("S'inscrire"),
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
               ),
+              child: const Text("S'inscrire"),
             ),
             const SizedBox(
               height: 24,

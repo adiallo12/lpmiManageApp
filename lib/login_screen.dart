@@ -46,7 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 24.0),
               ElevatedButton(
                 onPressed: () {
-                  // Ajouter la logique de connexion ici
+                  
                 },
                 child: const Text('Se connecter'),
               ),

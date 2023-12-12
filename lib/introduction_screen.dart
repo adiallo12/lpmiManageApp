@@ -19,9 +19,11 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
             const Image(
               image: AssetImage("assets/images/logoUB.png"),
             ),
+            SizedBox(height: 30,),
             const Text(
               'Licence LPMI  2023-2024',
             ),
+            SizedBox(height: 30,),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -29,11 +31,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                   MaterialPageRoute(builder: (context) => const LoginScreen()),
                 );
               },
-              child: const Text('Go to page 1'),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Go to page 2 '),
+              child: const Text('Page de connexion'),
             ),
           ],
         ),

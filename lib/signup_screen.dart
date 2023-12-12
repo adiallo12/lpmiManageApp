@@ -1,17 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(SignupApp());
-
-class SignupApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Formulaire d\'inscription',
-      home: SignupScreen(),
-    );
-  }
-}
-
 class SignupScreen extends StatefulWidget {
   @override
   _SignupScreenState createState() => _SignupScreenState();

@@ -21,7 +21,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
               "Bienvenue sur l'application LPMI Manage",
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.blue),
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 50,),
             ElevatedButton(
               onPressed: () {},
               child: const Text("S'inscrire"),

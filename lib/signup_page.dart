@@ -9,6 +9,8 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  String gender = "Homme";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,21 +63,27 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 const Spacer(flex: 1),
-                const Row(
+                Row(
                   children: [
-                    Text("Genre : "),
+                    const Text("Genre : "),
                     Radio(
-                      value: 0,
-                      groupValue: 0,
-                      onChanged: null,
-                    ),
-                    Text("Homme"),
+                        value: 'Homme',
+                        groupValue: gender,
+                        onChanged: (value) {
+                          setState(() {
+                            gender = value.toString();
+                          });
+                        }),
+                    const Text("Homme"),
                     Radio(
-                      value: 1,
-                      groupValue: 0,
-                      onChanged: null,
-                    ),
-                    Text("Femme"),
+                        value: 'Femme',
+                        groupValue: gender,
+                        onChanged: (value) {
+                          setState(() {
+                            gender = value.toString();
+                          });
+                        }),
+                    const Text("Femme"),
                   ],
                 ),
                 ButtonBar(

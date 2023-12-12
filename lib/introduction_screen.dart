@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'login.dart';
 
 class IntroductionScreen extends StatefulWidget {
   const IntroductionScreen({super.key});
@@ -14,33 +15,24 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset("assets/images/logoUB.png", width: 150),
-            const SizedBox(height: 50),
+          children: <Widget>[
+            const Image(image: AssetImage("assets/images/logoUB.png"),),
             const Text(
-              "Bienvenue sur l'application LPMI Manage",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.blue),
-            ),
-            const SizedBox(height: 50),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text("S'inscrire"),
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
-              ),
-            ),
-            const SizedBox(
-              height: 24,
+              'Licence LPMI 2023-2024',
             ),
             ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
-                ),
-                child: const Text("Se connecter"))
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder:(context) => const LoginScreen()),);
+              },
+              child: const Text('Go to page 1'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+              },
+              child: const Text('Go to page 2 '),
+            ),
           ],
         ),
       ),
-    );
-  }
+    );  }
 }

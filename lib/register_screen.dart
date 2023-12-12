@@ -104,6 +104,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
               },
               child: const Text('S\'inscrire'),
             ),
+            const SizedBox(height: 100),
+            const Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text("Vous avez déjà un compte ?"),
+                  TextButton(
+                    onPressed: null,
+                    child: Text("Se connecter"),
+                  )
+                ])
           ],
         ),
       ),

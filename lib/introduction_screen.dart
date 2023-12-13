@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lpmi/connexion_screen.dart';
 
 class IntroductionScreen extends StatefulWidget {
   const IntroductionScreen({super.key});
@@ -23,24 +24,32 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
             ),
             const SizedBox(height: 50),
             ElevatedButton(
-              onPressed: () {},
-              child: const Text("S'inscrire"),
+              onPressed: null,
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
               ),
+              child: const Text("S'inscrire"),
             ),
             const SizedBox(
               height: 24,
             ),
             ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
-                ),
-                child: const Text("Se connecter"))
-          ],
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
+              ),
+              child: const Text("Se connecter"),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ConnexionScreen(),
+                  ),
+                ); //Navigator
+              }, //onPressed
+            ),
+          ], // Children
         ),
       ),
     );
-  }
-}
+  }  // Widget
+} // Class

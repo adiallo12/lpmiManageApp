@@ -6,11 +6,14 @@ class ConnexionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Connexion'),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text("Connexion"),
+            Image.asset("assets/images/logoUB.png", width: 150),
             const SizedBox(
               height: 24,
             ),
@@ -37,15 +40,18 @@ class ConnexionScreen extends StatelessWidget {
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
-                ),
+                ),// style
                 child: const Text("Se connecter")),
             const SizedBox(
               height: 24,
             ),
-            const Text("Pas de compte s'inscrire"),
-          ],
+            TextButton(
+              onPressed: () {},
+              child: const Text("Pas de compte s'inscrire"),
+            ),
+          ], // children
         ),
       ),
     );
-  }
-}
+  } // Widget
+} // class

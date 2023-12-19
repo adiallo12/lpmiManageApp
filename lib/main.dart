@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lpmi/introduction_screen.dart';
-import 'package:lpmi/registrationScreen.dart';
+import 'package:lpmi/component/side_menu.dart';
+import 'package:lpmi/screens/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const RegistrationScreen(),
+      home:  HomeScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

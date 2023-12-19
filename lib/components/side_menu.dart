@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class SideMenu extends StatefulWidget {
-  final Function(int ) OnItemSelected;
-  final int SelectedIndex;
-  const SideMenu({super.key, required this.OnItemSelected, required this.SelectedIndex});
+  final Function(int) onItemsSelected;
+  final int selectedIndex;
+  const SideMenu({super.key, required this.onItemsSelected, required this.selectedIndex});
 
   @override
   State<SideMenu> createState() => _SideMenuState(

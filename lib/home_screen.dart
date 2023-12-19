@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'components/side_menu.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -7,12 +8,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold (
       appBar: AppBar(
         title: const Text('LPMI'),
-      ));
+      ),
+      drawer:  SideMenu(
+          onItemsSelected: (int index) {},
+          selectedIndex:  0,
+      ),
+    );
   }
 }
 

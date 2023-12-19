@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'login_screen.dart';
-
+import 'package:lpmi/home_screen.dart';
 class IntroductionScreen extends StatefulWidget {
   const IntroductionScreen({super.key});
 
@@ -32,7 +31,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const LoginScreen()),
+                  MaterialPageRoute(builder: (context) => const HomeScreen()),
                 );
               },
               child: const Text('Page de connexion'),

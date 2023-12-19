@@ -9,7 +9,7 @@ import '../student_screen.dart';
 class SideMenu extends StatefulWidget {
   final Function(Widget) onSelectScreen;
 
-  SideMenu({required this.onSelectScreen});
+  const SideMenu({super.key, required this.onSelectScreen});
 
   @override
   _SideMenuState createState() => _SideMenuState();
@@ -25,13 +25,13 @@ class _SideMenuState extends State<SideMenu> {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
+          const DrawerHeader(
+            decoration: BoxDecoration(
+              color: Color.fromARGB(210, 254, 33, 33),
+            ),
             child: Text(
               'Menu',
               style: TextStyle(color: Colors.black, fontSize: 25),
-            ),
-            decoration: BoxDecoration(
-              color: Colors.white54,
             ),
           ),
           _createDrawerItem(
@@ -39,7 +39,7 @@ class _SideMenuState extends State<SideMenu> {
             text: 'Accueil',
             isSelected: _selectedPage == 'Accueil',
             onTap: () {
-              widget.onSelectScreen(HomeScreen());
+              widget.onSelectScreen(const HomeScreen());
               _updateSelectedPage('Accueil');
             },
           ),
@@ -48,7 +48,7 @@ class _SideMenuState extends State<SideMenu> {
             text: 'Étudiants',
             isSelected: _selectedPage == 'Étudiants',
             onTap: () {
-              widget.onSelectScreen(StudentsScreen());
+              widget.onSelectScreen(const StudentsScreen());
               _updateSelectedPage('Étudiants');
             },
           ),
@@ -57,7 +57,7 @@ class _SideMenuState extends State<SideMenu> {
             text: 'Entreprise',
             isSelected: _selectedPage == 'Entreprise',
             onTap: () {
-              widget.onSelectScreen(EntrepriseScreen());
+              widget.onSelectScreen(const EntrepriseScreen());
               _updateSelectedPage('Entreprise');
             },
           ),
@@ -66,7 +66,7 @@ class _SideMenuState extends State<SideMenu> {
             text: 'Offres',
             isSelected: _selectedPage == 'Offres',
             onTap: () {
-              widget.onSelectScreen(OffersScreen());
+              widget.onSelectScreen(const OffersScreen());
               _updateSelectedPage('Offres');
             },
           ),
@@ -75,7 +75,7 @@ class _SideMenuState extends State<SideMenu> {
             text: 'Paramètres',
             isSelected: _selectedPage == 'Paramètres',
             onTap: () {
-              widget.onSelectScreen(SettingsScreen());
+              widget.onSelectScreen(const SettingsScreen());
               _updateSelectedPage('Paramètres');
             },
           ),
@@ -96,12 +96,13 @@ class _SideMenuState extends State<SideMenu> {
       bool isSelected = false,
       GestureTapCallback? onTap}) {
     return ListTile(
-      tileColor: isSelected ? Colors.grey.shade200 : null,
+      tileColor: isSelected ? const Color.fromARGB(255, 180, 179, 179) : null,
       title: Row(
         children: <Widget>[
-          Icon(icon, color: isSelected ? Colors.purple : null),
+          Icon(icon,
+              color: isSelected ? const Color.fromARGB(255, 220, 8, 8) : null),
           Padding(
-            padding: EdgeInsets.only(left: 8.0),
+            padding: const EdgeInsets.only(left: 8.0),
             child: Text(text ?? ''),
           )
         ],

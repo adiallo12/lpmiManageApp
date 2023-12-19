@@ -4,13 +4,14 @@ import 'components/side_menu.dart';
 import 'home_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
+  const DashboardScreen({Key? key}) : super(key: key);
+
   @override
   _MainScreenState createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<DashboardScreen> {
-  // Variable pour maintenir le widget actuellement sélectionné
-  Widget _currentScreen = HomeScreen();
+  Widget _currentScreen = const HomeScreen();
 
   void _updateScreen(Widget newScreen) {
     setState(() {
@@ -21,14 +22,11 @@ class _MainScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(
-        children: <Widget>[
-          SideMenu(
-              onSelectScreen:
-                  _updateScreen), // Modifié pour inclure un callback
-          Expanded(child: _currentScreen), // Contenu dynamique
-        ],
+      appBar: AppBar(
+        title: const Text('Dashboard'),
       ),
+      drawer: SideMenu(onSelectScreen: _updateScreen),
+      body: _currentScreen,
     );
   }
 }

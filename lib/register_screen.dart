@@ -22,7 +22,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(20.0),
           child: ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 400), // Limiter la largeur du formulaire
+            constraints: BoxConstraints(maxWidth: 400), 
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

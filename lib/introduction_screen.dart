@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lpmi/register_screen.dart';
 import 'package:lpmi/screens/login_screen.dart';
 
 class IntroductionScreen extends StatefulWidget {
@@ -20,13 +21,22 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
             const SizedBox(height: 50),
             const Text(
               "Bienvenue sur l'application LPMI Manage",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.blue),
+              style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue),
             ),
             const SizedBox(height: 50),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const RegisterScreen()));
+              },
               style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
               ),
               child: const Text("S'inscrire"),
             ),
@@ -35,10 +45,14 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
             ),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginScreen()));
                 },
                 style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
                 ),
                 child: const Text("Se connecter"))
           ],

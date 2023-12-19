@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lpmi/introduction_screen.dart';
+import 'package:lpmi/screens/login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -22,7 +22,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(20.0),
           child: ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 400), 
+            constraints: const BoxConstraints(maxWidth: 400), 
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -96,7 +96,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const IntroductionScreen()),
+                      MaterialPageRoute(builder: (context) => const LoginScreen()),
                     );
                   },
                   style: ElevatedButton.styleFrom(

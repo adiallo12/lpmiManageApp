@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lpmi/screens/register_screen.dart';
+import 'package:lpmi/screens/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -42,14 +44,16 @@ class LoginScreen extends StatelessWidget {
                 ElevatedButton(
                   child: const Text("Se connecter"),
                   onPressed: () {
-
+                      Navigator.push(context, 
+                      MaterialPageRoute(builder: (context) => const HomeScreen()));
                   },
                 ),
                 const SizedBox(height: 10),
                 TextButton(
                   child: const Text("Pas de compte ? S'inscrire"),
                   onPressed: () {
-                    //Rediriger vers l'écran d'inscription;
+                      Navigator.push(context, 
+                      MaterialPageRoute(builder: (context) => const RegisterScreen()));
                   },
                 ),
               ],

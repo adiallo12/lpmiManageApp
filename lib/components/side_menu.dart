@@ -1,11 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:lpmi/entreprise_screen.dart';
-import 'package:lpmi/home_screen.dart';
-import 'package:lpmi/offer_screen.dart';
-import 'package:lpmi/setting_screen.dart';
 
-class SideMenu extends StatelessWidget {
-  const SideMenu({Key? key}) : super(key: key);
+import '../entreprise_screen.dart';
+import '../home_screen.dart';
+import '../offer_screen.dart';
+import '../setting_screen.dart';
+import '../student_screen.dart';
+
+class SideMenu extends StatefulWidget {
+  final Function(Widget) onSelectScreen;
+
+  SideMenu({required this.onSelectScreen});
+
+  @override
+  _SideMenuState createState() => _SideMenuState();
+}
+
+class _SideMenuState extends State<SideMenu> {
+  // Nom de la page actuellement sélectionnée
+  String _selectedPage = 'Accueil';
 
   @override
   Widget build(BuildContext context) {
@@ -13,46 +25,88 @@ class SideMenu extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          const DrawerHeader(
-            decoration: BoxDecoration(
-              color: Colors.blue,
+          DrawerHeader(
+            child: Text(
+              'Menu',
+              style: TextStyle(color: Colors.black, fontSize: 25),
             ),
-            child: Text('Menu'),
+            decoration: BoxDecoration(
+              color: Colors.white54,
+            ),
           ),
-          ListTile(
-            title: const Text('Accueil'),
+          _createDrawerItem(
+            icon: Icons.home,
+            text: 'Accueil',
+            isSelected: _selectedPage == 'Accueil',
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const HomeScreen()));
+              widget.onSelectScreen(HomeScreen());
+              _updateSelectedPage('Accueil');
             },
           ),
-          ListTile(
-            title: const Text('Entreprise'),
+          _createDrawerItem(
+            icon: Icons.school,
+            text: 'Étudiants',
+            isSelected: _selectedPage == 'Étudiants',
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const EnterpriseScreen()));
+              widget.onSelectScreen(StudentsScreen());
+              _updateSelectedPage('Étudiants');
             },
           ),
-          ListTile(
-            title: const Text('Offres'),
+          _createDrawerItem(
+            icon: Icons.business_center,
+            text: 'Entreprise',
+            isSelected: _selectedPage == 'Entreprise',
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const OfferScreen()));
+              widget.onSelectScreen(EntrepriseScreen());
+              _updateSelectedPage('Entreprise');
             },
           ),
-          ListTile(
-            title: const Text('Paramètres'),
+          _createDrawerItem(
+            icon: Icons.business,
+            text: 'Offres',
+            isSelected: _selectedPage == 'Offres',
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const SettingScreen()));
+              widget.onSelectScreen(OffersScreen());
+              _updateSelectedPage('Offres');
+            },
+          ),
+          _createDrawerItem(
+            icon: Icons.settings,
+            text: 'Paramètres',
+            isSelected: _selectedPage == 'Paramètres',
+            onTap: () {
+              widget.onSelectScreen(SettingsScreen());
+              _updateSelectedPage('Paramètres');
             },
           ),
         ],
       ),
+    );
+  }
+
+  void _updateSelectedPage(String pageName) {
+    setState(() {
+      _selectedPage = pageName;
+    });
+  }
+
+  Widget _createDrawerItem(
+      {IconData? icon,
+      String? text,
+      bool isSelected = false,
+      GestureTapCallback? onTap}) {
+    return ListTile(
+      tileColor: isSelected ? Colors.grey.shade200 : null,
+      title: Row(
+        children: <Widget>[
+          Icon(icon, color: isSelected ? Colors.purple : null),
+          Padding(
+            padding: EdgeInsets.only(left: 8.0),
+            child: Text(text ?? ''),
+          )
+        ],
+      ),
+      onTap: onTap,
     );
   }
 }

@@ -1,19 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:lpmi/components/profile_icon.dart';
 
-class OfferScreen extends StatelessWidget {
-  const OfferScreen({Key? key}) : super(key: key);
-
+class OffersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Offres'),
+        title: Text("Section Offres"),
+        actions: <Widget>[
+          ProfileIcon(
+              imageUrl:
+                  'assets/images/profil_picture.jpg'), // Remplacez avec l'URL réelle
+        ],
       ),
-      body: const Center(
-        child: Text(
-          'Bienvenue sur la page des offres !',
-          style: TextStyle(fontSize: 24),
-        ),
+      body: Row(
+        children: <Widget>[
+          Expanded(
+            child: Center(
+              child: Text(
+                "Bienvenue dans la section Offres",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

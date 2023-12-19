@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 
-class SettingScreen extends StatelessWidget {
-  const SettingScreen({Key? key}) : super(key: key);
-
+class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Paramètres'),
-      ),
-      body: const Center(
-        child: Text(
-          'Bienvenue sur la page des paramètres !',
-          style: TextStyle(fontSize: 24),
-        ),
+      body: Row(
+        children: <Widget>[
+          Expanded(
+            child: Center(
+              child: Text(
+                "Bienvenue dans la section Paramètres",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

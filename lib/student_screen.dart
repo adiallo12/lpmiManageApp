@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 
-class StudentScreen extends StatelessWidget {
-  const StudentScreen({super.key});
-
+class StudentsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Étudiants'),
-      ),
-      body: const Center(
-        child: Text(
-          'Bienvenue sur la page des étudiants !',
-          style: TextStyle(fontSize: 24),
-        ),
+      body: Row(
+        children: <Widget>[
+          Expanded(
+            child: Center(
+              child: Text(
+                "Bienvenue dans la section Etudiants",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

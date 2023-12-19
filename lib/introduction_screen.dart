@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lpmi/register_screen.dart';
-import 'package:lpmi/screens/login_screen.dart';
+import 'package:lpmi/login_screen.dart';
 
 class IntroductionScreen extends StatefulWidget {
   const IntroductionScreen({super.key});
@@ -46,9 +45,11 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
             ElevatedButton(
                 onPressed: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginScreen()));
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LoginScreen(),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   padding:

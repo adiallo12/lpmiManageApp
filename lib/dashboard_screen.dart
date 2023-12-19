@@ -1,21 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:lpmi/components/side_menu.dart';
 
-class DashboardScreen extends StatelessWidget {
-  const DashboardScreen({Key? key}) : super(key: key);
+import 'components/side_menu.dart';
+import 'home_screen.dart';
+
+class DashboardScreen extends StatefulWidget {
+  @override
+  _MainScreenState createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<DashboardScreen> {
+  // Variable pour maintenir le widget actuellement sélectionné
+  Widget _currentScreen = HomeScreen();
+
+  void _updateScreen(Widget newScreen) {
+    setState(() {
+      _currentScreen = newScreen;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Tableau de bord'),
-      ),
-      drawer: const SideMenu(),
-      body: const Center(
-        child: Text(
-          'Bienvenue sur le tableau de bord !',
-          style: TextStyle(fontSize: 24),
-        ),
+      body: Row(
+        children: <Widget>[
+          SideMenu(
+              onSelectScreen:
+                  _updateScreen), // Modifié pour inclure un callback
+          Expanded(child: _currentScreen), // Contenu dynamique
+        ],
       ),
     );
   }

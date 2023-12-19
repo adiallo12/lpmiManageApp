@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:lpmi/screens/registration_screen.dart';
 import 'package:lpmi/screens/login_screen.dart';
+import 'components/side_menu.dart';
+
 
 class IntroductionScreen extends StatefulWidget {
-  const IntroductionScreen({super.key});
+  const IntroductionScreen({Key? key}) : super(key: key);
 
   @override
   State<IntroductionScreen> createState() => _IntroductionScreenState();
@@ -13,6 +15,10 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Introduction"),
+      ),
+      drawer: SideMenu(), 
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

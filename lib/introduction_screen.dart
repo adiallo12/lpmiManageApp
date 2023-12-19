@@ -15,7 +15,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset("assets/images/logoUB.png", width: 150),
+            Image.asset("assets/image/logoUB.png", width: 150),
             const SizedBox(height: 50),
             const Text(
               "Bienvenue sur l'application LPMI Manage",

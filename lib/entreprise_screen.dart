@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Entreprise extends StatefulWidget {
-  const Entreprise({super.key});
+class EntrepriseScreen extends StatefulWidget {
+  const EntrepriseScreen({super.key});
 
   @override
-  State<Entreprise> createState() => _EntrepriseState();
+  State<EntrepriseScreen> createState() => _EntrepriseState();
 }
 
-class _EntrepriseState extends State<Entreprise> {
+class _EntrepriseState extends State<EntrepriseScreen> {
   @override
   Widget build(BuildContext context) {
     return const Placeholder();

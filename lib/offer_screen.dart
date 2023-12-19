@@ -6,11 +6,9 @@ class OffersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Section Offres"),
+        title: Text("Offres"),
         actions: <Widget>[
-          ProfileIcon(
-              imageUrl:
-                  'assets/images/profil_picture.jpg'), // Remplacez avec l'URL réelle
+          ProfileIcon(imageUrl: 'assets/images/profil_picture.jpg'),
         ],
       ),
       body: Row(

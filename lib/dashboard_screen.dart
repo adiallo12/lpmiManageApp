@@ -26,9 +26,7 @@ class _MainScreenState extends State<DashboardScreen> {
     return Scaffold(
       body: Row(
         children: <Widget>[
-          SideMenu(
-              onSelectScreen:
-                  _updateScreen), // Modifié pour inclure un callback
+          SideMenu(onSelectScreen: _updateScreen),
           Expanded(child: _currentScreen), // Contenu dynamique
         ],
       ),

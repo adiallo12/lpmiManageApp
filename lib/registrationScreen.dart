@@ -72,10 +72,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {},
-              child: const Text("S'inscrire"),
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
-              ),
+              child: const Text("S'inscrire",
+                  style: TextStyle(
+                fontSize: 15,
+                decoration: TextDecoration.underline,
+                decorationColor: Colors.orange,
+                color: Colors.orange,
+              )),
             ),
 
             SizedBox(height: 30),
@@ -85,10 +88,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 context,
                 MaterialPageRoute(builder: (context) => const LoginScreen()),
               );},
-              child: const Text("Déjà un compte ? Se connecter"),
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
-              ),
+              child: const Text("Déjà un compte ? Se connecter",
+                  style: TextStyle(
+                fontSize: 15,
+                decoration: TextDecoration.underline,
+                decorationColor: Colors.orange,
+                color: Colors.orange,
+              )),
             ),
 
           ],

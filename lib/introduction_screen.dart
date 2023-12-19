@@ -22,7 +22,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
             const SizedBox(height: 50),
             const Text(
               "Bienvenue sur l'application LPMI Manage",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.blue),
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.orangeAccent),
             ),
             const SizedBox(height: 50),
             ElevatedButton(
@@ -33,7 +33,13 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
               ),
-              child: const Text("S'inscrire"),
+              child: const Text("S'inscrire",
+                  style: TextStyle(
+                fontSize: 15,
+                decoration: TextDecoration.underline,
+                decorationColor: Colors.orange,
+                color: Colors.orange,
+              )),
             ),
             const SizedBox(
               height: 24,
@@ -48,7 +54,13 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
                 ),
-                child: const Text("Se connecter"))
+                child: const Text("Se connecter",
+                    style: TextStyle(
+                  fontSize: 15,
+                  decoration: TextDecoration.underline,
+                  decorationColor: Colors.orange,
+                  color: Colors.orange,
+                )),)
           ],
         ),
       ),

@@ -5,18 +5,11 @@ import '../setting_screen.dart';
 import '../home_screen.dart';
 import '../entreprise_screen.dart';
 
-class SideMenu extends StatefulWidget {
-  final Function(Widget) onSelectScreen;
+class SideMenu extends StatelessWidget {
+  final Function(Widget, String) onSelectScreen;
+  final String currentScreenName;
 
-  SideMenu({required this.onSelectScreen});
-
-  @override
-  _SideMenuState createState() => _SideMenuState();
-}
-
-class _SideMenuState extends State<SideMenu> {
-  // Nom de la page actuellement sélectionnée
-  String _selectedPage = 'Accueil';
+  SideMenu({required this.onSelectScreen, required this.currentScreenName});
 
   @override
   Widget build(BuildContext context) {
@@ -36,64 +29,44 @@ class _SideMenuState extends State<SideMenu> {
           _createDrawerItem(
             icon: Icons.home,
             text: 'Accueil',
-            isSelected: _selectedPage == 'Accueil',
-            onTap: () {
-              widget.onSelectScreen(HomeScreen());
-              _updateSelectedPage('Accueil');
-            },
+            isSelected: currentScreenName == 'Accueil',
+            onTap: () => onSelectScreen(HomeScreen(), 'Accueil'),
           ),
           _createDrawerItem(
             icon: Icons.school,
             text: 'Étudiants',
-            isSelected: _selectedPage == 'Étudiants',
-            onTap: () {
-              widget.onSelectScreen(StudentsScreen());
-              _updateSelectedPage('Étudiants');
-            },
+            isSelected: currentScreenName == 'Étudiants',
+            onTap: () => onSelectScreen(StudentsScreen(), 'Étudiants'),
           ),
           _createDrawerItem(
             icon: Icons.business_center,
             text: 'Entreprise',
-            isSelected: _selectedPage == 'Entreprise',
-            onTap: () {
-              widget.onSelectScreen(EntrepriseScreen());
-              _updateSelectedPage('Entreprise');
-            },
+            isSelected: currentScreenName == 'Entreprise',
+            onTap: () => onSelectScreen(EntrepriseScreen(), 'Entreprise'),
           ),
           _createDrawerItem(
             icon: Icons.business,
             text: 'Offres',
-            isSelected: _selectedPage == 'Offres',
-            onTap: () {
-              widget.onSelectScreen(OffersScreen());
-              _updateSelectedPage('Offres');
-            },
+            isSelected: currentScreenName == 'Offres',
+            onTap: () => onSelectScreen(OffersScreen(), 'Offres'),
           ),
           _createDrawerItem(
             icon: Icons.settings,
             text: 'Paramètres',
-            isSelected: _selectedPage == 'Paramètres',
-            onTap: () {
-              widget.onSelectScreen(SettingsScreen());
-              _updateSelectedPage('Paramètres');
-            },
+            isSelected: currentScreenName == 'Paramètres',
+            onTap: () => onSelectScreen(SettingsScreen(), 'Paramètres'),
           ),
         ],
       ),
     );
   }
 
-  void _updateSelectedPage(String pageName) {
-    setState(() {
-      _selectedPage = pageName;
-    });
-  }
-
-  Widget _createDrawerItem(
-      {IconData? icon,
-      String? text,
-      bool isSelected = false,
-      GestureTapCallback? onTap}) {
+  Widget _createDrawerItem({
+    IconData? icon,
+    String? text,
+    bool isSelected = false,
+    GestureTapCallback? onTap,
+  }) {
     return ListTile(
       tileColor: isSelected ? Colors.grey.shade200 : null,
       title: Row(

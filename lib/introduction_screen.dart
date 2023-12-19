@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lpmi/screens/login_screen.dart';
 
 class IntroductionScreen extends StatefulWidget {
   const IntroductionScreen({super.key});
@@ -15,7 +16,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset("assets/images/logoUB.png", width: 150),
+            Image.asset("assets/image/logoUB.png", width: 150),
             const SizedBox(height: 50),
             const Text(
               "Bienvenue sur l'application LPMI Manage",
@@ -24,16 +25,18 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
             const SizedBox(height: 50),
             ElevatedButton(
               onPressed: () {},
-              child: const Text("S'inscrire"),
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
               ),
+              child: const Text("S'inscrire"),
             ),
             const SizedBox(
               height: 24,
             ),
             ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
+                },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
                 ),

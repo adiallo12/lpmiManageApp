@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lpmi/register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -58,24 +59,18 @@ class _LoginScreenState extends State<LoginScreen> {
               child: const Text("Login"),
             ),
             const SizedBox(height: 20),
-            GestureDetector(
-              onTap: () {
-                //Navigator.push(
-                  //context,
-                  //MaterialPageRoute(
-                    //builder: (context) => const InscriptionScreen(),
-                  //),
-                //);
-              },
-              child: const Text(
-                'Inscription',
-                style: TextStyle(
-                  decoration: TextDecoration.underline,
-                  color: Color.fromARGB(255, 107, 107, 107),
-                  fontSize: 16.0,
+            TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const RegisterScreen()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
+                  ),
+                  child: const Text("Pas encore de compte ? Inscrivez vous"),
                 ),
-              )
-            )
           ],
         )
       ),

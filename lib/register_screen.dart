@@ -100,6 +100,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         const SizedBox(height: 20),
                         ElevatedButton(
                             onPressed: () {
+                                // Ajoute ici la logique pour traiter les données du formulaire
                             },
                             child: const Text('S\'inscrire'),
                         ),

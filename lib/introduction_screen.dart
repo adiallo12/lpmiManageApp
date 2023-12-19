@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lpmi/registrationScreen.dart';
 
 import 'login_screen.dart';
 
@@ -25,7 +26,10 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
             ),
             const SizedBox(height: 50),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const RegistrationScreen()),
+              );},
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
               ),

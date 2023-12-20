@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lpmi/register_screen.dart';
+import 'package:lpmi/screen/register_screen.dart';
+import 'package:lpmi/screen/dashboard_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -52,7 +53,12 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyWidget()),
+                );
+                  },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
               ),
@@ -76,4 +82,8 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+}
+
+class DashboardScreen {
+  const DashboardScreen();
 }

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'components/side_menu.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:syncfusion_flutter_charts/sparkcharts.dart';
+import 'package:fl_chart/fl_chart.dart';
+//import 'package:syncfusion_flutter_charts/charts.dart';
+//import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -23,57 +24,61 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
       body: Container(
         child: Row(
-          children: [
-            Container(
-              width: 100,
-              height: 100,
-              padding: const EdgeInsets.all(10),
-              child: SfSparkBarChart(
-                data: <double>[ 1, 5],
-                axisCrossesAt: 0,
-                axisLineColor: Colors.red,
-                axisLineWidth: 3,
-                borderColor: Colors.blue,
-                color: Colors.blue,
+            children: [
+              Container(
+                width: 125,
+                height: 200,
+                padding: const EdgeInsets.all(5),
+                child: BarChart(
+                  BarChartData(
+                    alignment: BarChartAlignment.spaceAround,
+                    maxY: 20,
+                    barTouchData: BarTouchData(
+                      enabled: false,
+                    ),
+                    titlesData: const FlTitlesData(
+                      show: true,
 
+                    ),),
+                ),
               ),
-            ),
-            Container(
-              width: 100,
-              height: 100,
-              padding: const EdgeInsets.all(10),
-              child: SfSparkBarChart(
-                data: <double>[3,3],
-                axisCrossesAt: 0,
-                axisLineColor: Colors.red,
-                axisLineWidth: 3,
-                borderColor: Colors.blue,
-                color: Colors.blue,
 
-              ),
-            ),
-            Container(
+              Container(
+                width: 125,
+                height: 200,
+                padding: const EdgeInsets.all(5),
+                child: BarChart(
+                  BarChartData(
+                    alignment: BarChartAlignment.spaceAround,
+                    maxY: 20,
+                    barTouchData: BarTouchData(
+                      enabled: false,
+                    ),
+                    titlesData: const FlTitlesData(
+                      show: true,
+                    ),
+                  ),
+                ),),
+              Container(
 
-              width: 100,
-              height: 100,
-              padding: const EdgeInsets.all(10),
-              child: SfSparkBarChart(
-                    title: SparkChartTitle(
-                  text: 'Sparkline chart',
-                  textStyle: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 20,
+                width: 125,
+                height: 200,
+                padding: const EdgeInsets.all(5),
+                child: BarChart(
+                  BarChartData(
+                    alignment: BarChartAlignment.spaceAround,
+                    maxY: 20,
+                    barTouchData: BarTouchData(
+                      enabled: false,
+                    ),
+                    titlesData: const  FlTitlesData(
+                      show: true,
+
+                    ),
                   ),
                 ),
-                data: <double>[ 5,1],
-                axisCrossesAt: 0,
-                axisLineColor: Colors.red,
-                axisLineWidth: 3,
-                borderColor: Colors.blue,
-                color: Colors.blue,
               ),
-            ),
-          ],
+            ]
         ),
       ),
     );

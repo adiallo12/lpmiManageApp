@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lpmi/dashboard_screen.dart';
 
 class SideMenu extends StatefulWidget {
   final Function(int) onItemsSelected;
@@ -42,7 +43,10 @@ class _SideMenuState extends State<SideMenu> {
             icon: Icons.dashboard,
             text: "DashBoard",
             onTap: () {
-              Navigator.pushNamed(context, '/dashboard');
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const DashboardScreen()),
+              );
             },
           ),
           CreateDrawerItem(

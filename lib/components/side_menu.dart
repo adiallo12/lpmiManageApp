@@ -4,12 +4,11 @@ import 'package:lpmi/dashboard_screen.dart';
 class SideMenu extends StatefulWidget {
   final Function(int) onItemsSelected;
   final int selectedIndex;
-  const SideMenu({super.key, required this.onItemsSelected, required this.selectedIndex});
+  const SideMenu(
+      {super.key, required this.onItemsSelected, required this.selectedIndex});
 
   @override
-  State<SideMenu> createState() => _SideMenuState(
-
-  );
+  State<SideMenu> createState() => _SideMenuState();
 }
 
 class _SideMenuState extends State<SideMenu> {
@@ -30,16 +29,14 @@ class _SideMenuState extends State<SideMenu> {
               ),
             ),
           ),
-          CreateDrawerItem
-            (
+          CreateDrawerItem(
             icon: Icons.home,
             text: 'accueil',
             onTap: () {
               Navigator.pushNamed(context, '/Accueil');
             },
           ),
-          CreateDrawerItem
-            (
+          CreateDrawerItem(
             icon: Icons.dashboard,
             text: "DashBoard",
             onTap: () {
@@ -80,18 +77,17 @@ Widget CreateDrawerItem({
   required IconData icon,
   required String text,
   required VoidCallback onTap,
-})
-{
-return ListTile(
-title: Row(
-children: [
-Icon(icon),
-Padding(
-padding: EdgeInsets.only(left: 8.0),
-child: Text(text),
-)
-],
-),
-onTap: onTap,
-);
+}) {
+  return ListTile(
+    title: Row(
+      children: [
+        Icon(icon),
+        Padding(
+          padding: EdgeInsets.only(left: 8.0),
+          child: Text(text),
+        )
+      ],
+    ),
+    onTap: onTap,
+  );
 }

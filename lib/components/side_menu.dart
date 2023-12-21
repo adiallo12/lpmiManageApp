@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lpmi/dashboard_screen.dart';
+import 'package:lpmi/entreprise_screen.dart';
+import 'package:lpmi/offer_screen.dart';
+import 'package:lpmi/student_screen.dart';
+import 'package:lpmi/home_screen.dart';
 
 class SideMenu extends StatefulWidget {
   final Function(int) onItemsSelected;
@@ -33,8 +37,10 @@ class _SideMenuState extends State<SideMenu> {
             icon: Icons.home,
             text: 'accueil',
             onTap: () {
-              Navigator.pushNamed(context, '/Accueil');
-            },
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const HomeScreen()),
+              );            },
           ),
           CreateDrawerItem(
             icon: Icons.dashboard,
@@ -50,22 +56,29 @@ class _SideMenuState extends State<SideMenu> {
             icon: Icons.people,
             text: 'Student',
             onTap: () {
-              Navigator.pushNamed(context, '/student');
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const StudentScreen()),
+              );
             },
           ),
           CreateDrawerItem(
             icon: Icons.business,
             text: 'buisness',
             onTap: () {
-              Navigator.pushNamed(context, '/entreprise');
-            },
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const EntrepriseScreen()),
+              );            },
           ),
           CreateDrawerItem(
             icon: Icons.work,
             text: 'Offer',
             onTap: () {
-              Navigator.pushNamed(context, '/offer');
-            },
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const OfferScreen()),
+              );            },
           )
         ],
       ),

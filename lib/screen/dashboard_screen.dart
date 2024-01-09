@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lpmi/Components/chart.dart';
 import 'package:lpmi/Components/side_menu.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -11,7 +12,8 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(
+    return Scaffold(
+      appBar: AppBar(
         centerTitle: true,
         title: const Text(
           "Dashboard", 
@@ -24,9 +26,27 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
       drawer: const SideMenu(),
       body: const Center(
-        child: Text("Bienvenue sur la page Dashboard"),
-      ),
-      
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children : <Widget>[ 
+            SizedBox(
+              width: 400,
+              height: 300,
+              child: Chart(value: 120, maxValue: 140),
+            ),
+            SizedBox(
+              width: 400,
+              height: 300,
+              child: Chart(value: 75, maxValue: 90),
+            ),
+            SizedBox(
+              width: 400,
+              height: 300,
+              child: Chart(value: 20, maxValue: 25),
+            ),
+          ]
+        )
+      )
     );
   }
 }

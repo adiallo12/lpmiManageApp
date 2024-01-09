@@ -1,64 +1,99 @@
 import 'package:flutter/material.dart';
+import 'package:lpmi/screen/entreprise_screen.dart';
+import 'package:lpmi/screen/home_screen.dart';
+import 'package:lpmi/screen/offer_screen.dart';
+import 'package:lpmi/screen/setting_screen.dart';
+import 'package:lpmi/screen/student_screen.dart';
 
-class SideMenu extends StatefulWidget {
-  final Function(int) onSelectedItem;
-  final int selectedItem;
-  const SideMenu({super.key, required this.onSelectedItem, required this.selectedItem});
+class SideMenu extends StatelessWidget {
+  const SideMenu({Key? key}) : super(key: key);
 
-  @override
-  State<SideMenu> createState() => _SideMenuState();
-}
-
-class _SideMenuState extends State<SideMenu> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      width: 250,
       child: ListView(
+        padding: EdgeInsets.zero,
         children: <Widget>[
-          const DrawerHeader(child: Text("Menu")),
-          createDrawerItem(
-            icon: Icons.home, 
-            text: 'Accueil', 
-            onTap: () => widget.onSelectedItem(0)
+          const DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.blue,
+            ),
+            child: Text(
+              'Menu',
+              style: TextStyle(
+                fontSize: 24,
+                color: Colors.white,
+              ),
+            ),
           ),
           createDrawerItem(
-            icon: Icons.school, 
-            text: 'Etudiants', 
-            onTap: () => widget.onSelectedItem(1)
+            icon: Icons.home,
+            text: 'Accueil',
+            onTap: () {
+                Navigator.push(context, 
+               MaterialPageRoute(builder: (context) => const HomeScreen()));
+            },
+          ),
+            createDrawerItem(
+            icon: Icons.school,
+            text: 'Étudiants',
+            onTap: () {
+                Navigator.push(context, 
+               MaterialPageRoute(builder: (context) => const StudentScreen()));
+            },
           ),
           createDrawerItem(
-            icon: Icons.business, 
-            text: 'Entreprises', 
-            onTap: () => widget.onSelectedItem(2)
+            icon: Icons.business,
+            text: 'Entreprise',
+            onTap: () {
+              Navigator.push(context, 
+              MaterialPageRoute(builder: (context) => const EntrepriseScreen()));
+            },
+          
           ),
-          createDrawerItem(
-            icon: Icons.work, 
-            text: 'Offres', 
-            onTap: () => widget.onSelectedItem(3)
+       
+            createDrawerItem(
+            icon: Icons.local_offer,
+            text: 'Offres',
+            onTap: () {
+                Navigator.push(context, 
+               MaterialPageRoute(builder: (context) => const OfferScreen()));
+            },
           ),
-          createDrawerItem(
-              icon: Icons.settings, 
-              text: 'Paramètres',
-              onTap: () => widget.onSelectedItem(4)
-          )
+            createDrawerItem(
+            icon: Icons.settings,
+            text: 'Paramètres',
+            onTap: () {
+                Navigator.push(context, 
+               MaterialPageRoute(builder: (context) => const SettingScreen()));
+            },
+          ),
+         
         ],
       ),
     );
   }
-}
 
-Widget createDrawerItem({ required IconData icon, required String text, required VoidCallback onTap})
-{
+   Widget createDrawerItem({
+    required IconData icon,
+    required String text,
+    required VoidCallback onTap,
+  }) {
   return ListTile(
-    title: Row(
-      children: <Widget>[
-        Icon(icon),
-        Padding(
-          padding: const EdgeInsets.only(left: 8.0),
-          child: Text(text, style: const TextStyle(color: Colors.blue)),
-        )
-      ],
-    ),
-    onTap: onTap
-  );
+      title: Row(
+        children: <Widget>[
+          Icon(icon),
+          Padding(
+            padding: const EdgeInsets.only(left: 8.0),
+            child: Text(
+              text,
+              style: const TextStyle(color: Colors.blue),
+            ),
+          ),
+        ],
+      ),
+      onTap: onTap,
+    );
+  }
 }

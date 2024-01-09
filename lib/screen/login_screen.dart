@@ -56,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const MyWidget()),
+                  MaterialPageRoute(builder: (context) => const DashboardScreen()),
                 );
                   },
               style: ElevatedButton.styleFrom(
@@ -82,8 +82,4 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-}
-
-class DashboardScreen {
-  const DashboardScreen();
 }

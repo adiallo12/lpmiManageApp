@@ -16,7 +16,17 @@ class MyWidget extends StatefulWidget {
 class _MyWidgetState extends State<MyWidget> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(appBar: AppBar(
+        centerTitle: true,
+        title: const Text(
+          "Main Page", 
+          style: TextStyle(
+            fontSize: 24, 
+            fontWeight: FontWeight.bold,
+            ),
+        ),
+
+      ),
       drawer: SideMenu(
         onSelectedItem: (index) {
           switch (index) {

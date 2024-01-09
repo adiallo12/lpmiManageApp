@@ -5,14 +5,10 @@ class StudentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
-
- Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
         child: Text("Bienvenue sur la page Student"),
       )
     );
- }
+  }
+}

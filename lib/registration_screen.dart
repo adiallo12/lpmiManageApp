@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lpmi/login_screen.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
@@ -12,7 +13,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Inscription'),
+        title: const Text('Inscription'),
         centerTitle: true,
       ),
       body: Center(
@@ -23,16 +24,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             const SizedBox(
               height: 24,
             ),
-            TextField(
+            const TextField(
               decoration: InputDecoration(labelText: 'Nom'),
             ),
-            TextField(
+            const TextField(
               decoration: InputDecoration(labelText: 'Prénom'),
             ),
-            TextField(
+            const TextField(
               decoration: InputDecoration(labelText: 'E-mail'),
             ),
-            TextField(
+            const TextField(
               decoration: InputDecoration(labelText: 'Mot de passe'),
             ),
             const SizedBox(
@@ -63,8 +64,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ),
                 child: const Text("S'inscrire")),
             TextButton(
-              onPressed: () {},
-              child: Text('Déja un compte ? Se connecter'),
+              onPressed: () {
+                Navigator.push (
+                context,
+                MaterialPageRoute(builder: (context) => const LoginScreen())
+                );
+              },
+              child: const Text('Déja un compte ? Se connecter'),
             ),
           ],
         ),

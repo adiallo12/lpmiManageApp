@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lpmi/dashboard_screen.dart';
+import 'package:lpmi/introduction_screen.dart';
 import 'package:lpmi/registration_screen.dart';
 
 void main() {
@@ -17,7 +19,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const RegistrationScreen(),
+      debugShowCheckedModeBanner: false,
+      home: const DashboardScreen(),
     );
   }
 }

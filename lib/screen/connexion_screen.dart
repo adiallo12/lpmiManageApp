@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lpmi/screen/dashboard_screen.dart';
+import 'package:lpmi/screen/register_screen.dart';
 
 class ConnexionScreen extends StatelessWidget {
   const ConnexionScreen({super.key});
@@ -37,16 +39,23 @@ class ConnexionScreen extends StatelessWidget {
               height: 24,
             ),
             ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
-                ),// style
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const DashboardScreen()),
+                  );
+                },
                 child: const Text("Se connecter")),
             const SizedBox(
               height: 24,
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const RegisterScreen()),
+                );
+              },
               child: const Text("Pas de compte s'inscrire"),
             ),
           ], // children

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lpmi/introduction_screen.dart';
+import 'package:lpmi/screen/connexion_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -19,43 +19,38 @@ class _RegisterScreenState extends State<RegisterScreen> {
         centerTitle: true,
       ),
       body: Center(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(20.0),
           child: ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 400), // Limiter la largeur du formulaire
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Image.asset("assets/images/logoUB.png", width: 150),
                 TextFormField(
                   decoration: const InputDecoration(
                     labelText: "Nom",
-                    border: OutlineInputBorder(),
                   ),
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: 15),
                 TextFormField(
                   decoration: const InputDecoration(
                     labelText: "Prénom",
-                    border: OutlineInputBorder(),
                   ),
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: 15),
                 TextFormField(
                   decoration: const InputDecoration(
                     labelText: "E-mail",
-                    border: OutlineInputBorder(),
                   ),
                   keyboardType: TextInputType.emailAddress,
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: 15),
                 TextFormField(
                   decoration: const InputDecoration(
                     labelText: "Mot de passe",
-                    border: OutlineInputBorder(),
                   ),
                   obscureText: true,
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: 15),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -96,7 +91,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const IntroductionScreen()),
+                      MaterialPageRoute(builder: (context) => const ConnexionScreen()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -108,7 +103,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
           ),
         ),
-      ),
-    );
+      );
   }
 }

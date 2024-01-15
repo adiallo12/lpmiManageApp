@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lpmi/home_screen.dart';
+import 'package:lpmi/services/SharedPrefHelper.dart';
 
 class Login extends StatefulWidget {
   const Login({
@@ -15,6 +17,10 @@ class LoginState extends State < Login > {
 
 
     return Scaffold(
+      appBar: AppBar(
+                title: const Text('Inscription'),
+                centerTitle: true,
+            ),
 
       body: Center(
         child: Column(
@@ -59,7 +65,16 @@ class LoginState extends State < Login > {
 
                     ),
                     const SizedBox(height: 20),
-                      ElevatedButton(onPressed: () {}, child: const Text("se connecter",),),
+                      ElevatedButton(onPressed: () {
+                   
+                       SharedPrefHelper.SetUserMail("sqd");
+                      print (SharedPrefHelper.GetUserMail());
+
+       // Navigator.push(context, MaterialPageRoute(builder: (context)=>  Home()));
+
+                      }
+                      
+                      , child: const Text("se connecter",),),
                       const SizedBox(height: 40),
 
                         const Text(

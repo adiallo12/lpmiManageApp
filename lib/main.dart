@@ -14,9 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'LPMI Manage',
-      theme: ThemeData(
+      theme: ThemeData(scaffoldBackgroundColor:const Color.fromARGB(255, 171, 253, 117),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        scaffoldBackgroundColor: const Color.fromARGB(255, 84, 239, 17),
         useMaterial3: true,
         
       ),

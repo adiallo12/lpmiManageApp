@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lpmi/home_screen.dart';
+import 'package:lpmi/shared_preference_helper.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -52,6 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => const HomeScreen())
                     );
+                    SharedPreferenceHelper.GetUserMail();
                   },
                   child: const Text("Se connecter",
                   style: TextStyle(

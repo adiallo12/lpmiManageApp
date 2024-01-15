@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
       drawer: SideMenu(
         onItemsSelected: (int index) {},
         selectedIndex: 0,
-      ),
+      )
     );
   }
 }

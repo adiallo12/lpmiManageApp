@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lpmi/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -47,7 +48,11 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 const SizedBox(height: 50),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const HomeScreen())
+                    );
+                  },
                   child: const Text("Se connecter",
                   style: TextStyle(
                    color: Colors.orange

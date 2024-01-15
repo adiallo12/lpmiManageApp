@@ -15,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text("Tableaux de bord")
+          title: const Text("Accueil")
       ),
       drawer: SideMenu(
         onItemsSelected: (int index) {},

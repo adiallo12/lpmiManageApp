@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lpmi/registrationScreen.dart';
 
+import 'model/api.dart';
 import 'login_screen.dart';
 
 class IntroductionScreen extends StatefulWidget {
@@ -32,6 +33,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
               );},
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
+                  foregroundColor: Colors.orange
               ),
               child: const Text("S'inscrire",
                   style: TextStyle(
@@ -53,14 +55,16 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                 },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
+                    foregroundColor: Colors.orange,
                 ),
+
                 child: const Text("Se connecter",
                     style: TextStyle(
                   fontSize: 15,
                   decoration: TextDecoration.underline,
                   decorationColor: Colors.orange,
                   color: Colors.orange,
-                )),)
+                )),),
           ],
         ),
       ),

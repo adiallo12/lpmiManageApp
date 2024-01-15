@@ -72,6 +72,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {},
+              style: ElevatedButton.styleFrom(foregroundColor: Colors.orange),
               child: const Text("S'inscrire",
                   style: TextStyle(
                 fontSize: 15,

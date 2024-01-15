@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:lpmi/utils/utils.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -48,8 +48,13 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const SizedBox(height: 50),
             ElevatedButton(
-              onPressed: () {},
-              child: const Text('Connexion'),
+              onPressed: () {
+                //Navigator.push(context, MaterialPageRoute(builder: (context) => DashboardScreen()),);
+                //SharedPreferenceHelper.GetUserMail();
+                SharedPreferenceHelper.SetUserMail("test");
+              },
+              style: ElevatedButton.styleFrom(foregroundColor: Colors.orange),
+              child: const Text("Se connecter !"),
             ),
             const SizedBox(height: 10),
             ElevatedButton(

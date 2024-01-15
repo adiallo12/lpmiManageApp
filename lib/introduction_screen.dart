@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lpmi/home_screen.dart';
+import 'package:lpmi/model/imagenasa.dart';
 class IntroductionScreen extends StatefulWidget {
   const IntroductionScreen({super.key});
 
@@ -35,6 +36,9 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                 );
               },
               child: const Text('Page de connexion'),
+            ),
+           Image.network(
+              'https://apod.nasa.gov/apod/image/2108/NGC6914_Hubble_960.jpg',
             ),
           ],
         ),

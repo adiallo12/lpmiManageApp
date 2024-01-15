@@ -10,9 +10,11 @@ class DashboardScreen extends StatefulWidget {
   State<DashboardScreen> createState() => _DashboardScreenState();
 }
 
-class _DashboardScreenState extends State<DashboardScreen> {
+class _DashboardScreenState extends State<DashboardScreen>
+{
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)
+  {
     final DeviceSize = MediaQuery.of(context).size;
     final mark = DateTime.now();
     final markedly = mark.day;
@@ -87,10 +89,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ],
                   ),
                 ),
-              ]),
+              ]
+              ),
             ],
           ),
-        ));
+        )
+    );
   }
 }
 

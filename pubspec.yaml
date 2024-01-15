@@ -12,6 +12,8 @@ environment:
 dependencies:
   syncfusion_flutter_charts: ^24.1.41
   fl_chart: ^0.65.0
+  http: ^1.1.2
+  shared_preferences: ^2.2.2
   flutter:
     sdk: flutter
 

@@ -26,24 +26,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
       drawer: const SideMenu(),
       body: const Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Wrap(
+          alignment: WrapAlignment.center,
           children : <Widget>[ 
-            SizedBox(
-              width: 400,
-              height: 300,
-              child: Chart(value: 120, maxValue: 140),
-            ),
-            SizedBox(
-              width: 400,
-              height: 300,
-              child: Chart(value: 75, maxValue: 90),
-            ),
-            SizedBox(
-              width: 400,
-              height: 300,
-              child: Chart(value: 20, maxValue: 25),
-            ),
+            Chart(name: "Nombre d'étudiants",value: 120, maxValue: 140),
+            Chart(name: "Nombre d'offres",value: 75, maxValue: 90),
+            Chart(name: "Nombre d'entreprise",value: 20, maxValue: 25),
           ]
         )
       )

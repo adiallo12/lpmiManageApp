@@ -5,8 +5,22 @@ import 'package:lpmi/screens/offer_screen.dart';
 import 'package:lpmi/screens/setting_screen.dart';
 import 'package:lpmi/screens/student_screen.dart';
 
-class SideMenu extends StatelessWidget {
+class SideMenu extends StatefulWidget {
   const SideMenu({Key? key}) : super(key: key);
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _SideMenuState createState() => _SideMenuState();
+}
+
+class _SideMenuState extends State<SideMenu> {
+  late String currentRoute;
+
+  @override
+  void initState() {
+    super.initState();
+    currentRoute = 'Accueil';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,70 +31,51 @@ class SideMenu extends StatelessWidget {
         children: <Widget>[
           const DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blue,
             ),
             child: Text(
               'Menu',
               style: TextStyle(
                 fontSize: 24,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
           ),
           createDrawerItem(
             icon: Icons.home,
             text: 'Accueil',
-            onTap: () {
-                Navigator.push(context, 
-               MaterialPageRoute(builder: (context) => const HomeScreen()));
-            },
+            onTap: () => navigateToScreen(const HomeScreen()),
           ),
-            createDrawerItem(
+          createDrawerItem(
             icon: Icons.school,
             text: 'Étudiants',
-            onTap: () {
-                Navigator.push(context, 
-               MaterialPageRoute(builder: (context) => const StudentScreen()));
-            },
+            onTap: () => navigateToScreen(const StudentScreen()),
           ),
           createDrawerItem(
             icon: Icons.business,
             text: 'Entreprise',
-            onTap: () {
-              Navigator.push(context, 
-              MaterialPageRoute(builder: (context) => const EntrepriseScreen()));
-            },
-          
+            onTap: () => navigateToScreen(const EntrepriseScreen()),
           ),
-       
-            createDrawerItem(
+          createDrawerItem(
             icon: Icons.local_offer,
             text: 'Offres',
-            onTap: () {
-                Navigator.push(context, 
-               MaterialPageRoute(builder: (context) => const OfferScreen()));
-            },
+            onTap: () => navigateToScreen(const OfferScreen()),
           ),
-            createDrawerItem(
+          createDrawerItem(
             icon: Icons.settings,
             text: 'Paramètres',
-            onTap: () {
-                Navigator.push(context, 
-               MaterialPageRoute(builder: (context) => const SettingScreen()));
-            },
+            onTap: () => navigateToScreen(const SettingScreen()),
           ),
-         
         ],
       ),
     );
   }
 
-   Widget createDrawerItem({
+  Widget createDrawerItem({
     required IconData icon,
     required String text,
     required VoidCallback onTap,
   }) {
-  return ListTile(
+    return ListTile(
       title: Row(
         children: <Widget>[
           Icon(icon),
@@ -96,5 +91,8 @@ class SideMenu extends StatelessWidget {
       onTap: onTap,
     );
   }
-}
 
+  void navigateToScreen(Widget screen) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => screen));
+  }
+}

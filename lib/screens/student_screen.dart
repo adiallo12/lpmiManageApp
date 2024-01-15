@@ -25,7 +25,6 @@ class StudentScreen extends StatelessWidget {
             const SizedBox(height: 20.0),
             ElevatedButton(
               onPressed: () {
-                // Action to be performed when the button is clicked
               },
               child: const Text(
                 'Click Here',

@@ -45,7 +45,7 @@ class LoginScreen extends StatelessWidget {
                   child: const Text("Se connecter"),
                   onPressed: () {
                       Navigator.push(context, 
-                      MaterialPageRoute(builder: (context) => const HomeScreen()));
+                      MaterialPageRoute(builder: (context) => HomeScreen()));
                   },
                 ),
                 const SizedBox(height: 10),

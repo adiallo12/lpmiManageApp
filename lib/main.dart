@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lpmi/introduction_screen.dart';
-import 'package:lpmi/registration/enterprise_screen.dart';
-import 'package:lpmi/registration/home_screen.dart';
-import 'package:lpmi/registration/offer_screen.dart';
-import 'package:lpmi/registration/registration.dart';
 import 'package:lpmi/registration/dashboard_screen.dart';
-import 'package:lpmi/registration/setting_screen.dart';
-import 'package:lpmi/registration/student_screen.dart';
+//import 'package:lpmi/introduction_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,22 +15,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'LPMI Manage',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 25, 52, 187)),
         useMaterial3: true,
       ),
-      initialRoute: '/', // Définissez la route initiale de l'application
-      routes: {
-        '/': (context) =>
-            const IntroductionScreen(), // Route pour l'écran d'introduction
-        '/register': (context) => RegisterScreen(),
-        '/dashboard': (context) => DashboardScreen(),
-        '/home': (context) => HomeScreen(),
-        '/offer': (context) => OfferScreen(),
-        '/enterprise': (context) => EnterpriseScreen(),
-        '/setting': (context) => SettingScreen(),
-        '/student': (context) => StudentScreen(),
-        // Route pour l'écran d'inscription
-      },
+      home: DashboardScreen(),
+      //home: IntroductionScreen(),
     );
   }
 }

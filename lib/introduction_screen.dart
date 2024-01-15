@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lpmi/registration.dart';
+import 'package:lpmi/registration/registration.dart';
 
 class IntroductionScreen extends StatefulWidget {
   const IntroductionScreen({super.key});

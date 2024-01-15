@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lpmi/dashboard_screen.dart';
-// import 'package:lpmi/signup_screen.dart';
-// import 'package:lpmi/login_screen.dart';
-// import 'package:lpmi/home_screen.dart';
+//import 'package:lpmi/introduction_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,11 +15,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'LPMI Manage',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 25, 187, 176)),
         useMaterial3: true,
       ),
       home: DashboardScreen(),
-      debugShowCheckedModeBanner: false,
+      //home: IntroductionScreen(),
     );
   }
 }

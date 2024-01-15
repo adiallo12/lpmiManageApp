@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lpmi/screens/register_screen.dart';
 import 'package:lpmi/screens/login_screen.dart';
-import 'package:lpmi/register_screen.dart';
 
 class IntroductionScreen extends StatefulWidget {
   const IntroductionScreen({super.key});
@@ -13,6 +13,9 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("LPMI Manage"),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -26,22 +29,21 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
             const SizedBox(height: 50),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => RegisterScreen()),
-                );
+                Navigator.push(context, 
+                MaterialPageRoute(builder: (context) => const RegisterScreen()));
               },
-              child: const Text("S'inscrire"),
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
               ),
+              child: const Text("S'inscrire"),
             ),
             const SizedBox(
               height: 24,
             ),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
+                  Navigator.push(context, 
+                  MaterialPageRoute(builder: (context) => const LoginScreen()));
                 },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
@@ -53,7 +55,3 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
     );
   }
 }
-
-
-
-

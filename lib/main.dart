@@ -1,24 +1,48 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:lpmi/login_screen.dart';
+import 'screens/home_page.dart';
+import 'screens/profil_page.dart';
+import 'screens/login_screen.dart';
+import 'screens/introduction_screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
 
-  // This widget is the root of your application.
+class _MyAppState extends State<MyApp> {
+  bool _isDarkMode = false;
+
   @override
   Widget build(BuildContext context) {
+    void onDarkMod() {
+      setState(() {
+        print("baba");
+        _isDarkMode = !_isDarkMode;
+      });
+    }
+
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'LPMI Manage',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const LoginScreen(),
+      theme: _isDarkMode ? ThemeData.dark() : ThemeData.light(),
+      initialRoute: '/home', // Route initiale
+      routes: {
+        '/introduction': (context) => IntroductionScreen(),
+        '/home': (context) => HomePage(
+              onDark: () => onDarkMod(),
+            ),
+        '/login': (context) => const LoginScreen(),
+        '/profil': (context) => ProfilPage(),
+        // Ajoutez d'autres routes nommées ici
+      },
     );
   }
 }

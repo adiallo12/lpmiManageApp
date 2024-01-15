@@ -15,7 +15,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Connexion',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
@@ -24,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.help),
+            icon: const Icon(Icons.help),
             onPressed: () {
               // Ajouter la logique pour afficher l'aide
             },
@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: 300,
                   child: Center(
                     child: TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Email',
                         prefixIcon: Icon(Icons.email),
                       ),
@@ -62,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: 300,
                   child: Center(
                     child: TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Mot de passe',
                         prefixIcon: Icon(Icons.lock),
                       ),
@@ -76,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 24.0),
+                const SizedBox(height: 24.0),
                 ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState?.validate() == true) {
@@ -90,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0), // Bord arrondi
                     ),
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   ),
                   child: const Text(
                     'Se connecter',

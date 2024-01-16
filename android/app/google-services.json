@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "50047905010",
+    "project_id": "lpmi-manage-f3cbd",
+    "storage_bucket": "lpmi-manage-f3cbd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50047905010:android:794c6d870d5db2d20ab46b",
+        "android_client_info": {
+          "package_name": "fr.ub.lpmimanage.lpmi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTOB1dfFKDb-lvJWwSePUQ-ynTqCNs8wo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

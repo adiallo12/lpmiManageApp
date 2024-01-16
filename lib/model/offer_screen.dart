@@ -5,14 +5,14 @@ class OffersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Section Offres"),
+        title: Text("Offers"),
       ),
       body: Row(
         children: <Widget>[
           Expanded(
             child: Center(
               child: Text(
-                "Offres",
+                "Offers",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),

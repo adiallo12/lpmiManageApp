@@ -9,7 +9,7 @@ class SettingsScreen extends StatelessWidget {
           Expanded(
             child: Center(
               child: Text(
-                "Paramètres",
+                "Settings",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),

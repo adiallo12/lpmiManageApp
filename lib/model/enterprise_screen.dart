@@ -9,7 +9,7 @@ class EnterpriseScreen extends StatelessWidget {
           Expanded(
             child: Center(
               child: Text(
-                "Entreprise",
+                "Enterprise",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),

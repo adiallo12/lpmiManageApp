@@ -9,8 +9,8 @@ class HomeScreen extends StatelessWidget {
           Expanded(
             child: Center(
               child: Text(
-                "Accueil",
-                //style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                "HomeSweetHome",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
           ),

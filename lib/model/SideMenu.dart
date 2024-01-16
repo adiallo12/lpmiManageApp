@@ -36,11 +36,11 @@ class _SideMenuState extends State<SideMenu> {
           ),
           _createDrawerItem(
             icon: Icons.home,
-            text: 'Accueil',
-            isSelected: _selectedPage == 'Accueil',
+            text: 'Home',
+            isSelected: _selectedPage == 'Home',
             onTap: () {
               widget.onSelectScreen(HomeScreen());
-              _updateSelectedPage('Accueil');
+              _updateSelectedPage('Home');
             },
           ),
           /*  _createDrawerItem(
@@ -54,29 +54,29 @@ class _SideMenuState extends State<SideMenu> {
           ),*/
           _createDrawerItem(
             icon: Icons.business_center,
-            text: 'Entreprise',
-            isSelected: _selectedPage == 'Entreprise',
+            text: 'Enterprise',
+            isSelected: _selectedPage == 'Enterprise',
             onTap: () {
               widget.onSelectScreen(EnterpriseScreen());
-              _updateSelectedPage('Entreprise');
+              _updateSelectedPage('Enterprise');
             },
           ),
           _createDrawerItem(
             icon: Icons.business,
-            text: 'Offres',
-            isSelected: _selectedPage == 'Offres',
+            text: 'Offers',
+            isSelected: _selectedPage == 'Offers',
             onTap: () {
               widget.onSelectScreen(OffersScreen());
-              _updateSelectedPage('Offres');
+              _updateSelectedPage('Offers');
             },
           ),
           _createDrawerItem(
             icon: Icons.settings,
-            text: 'Paramètres',
-            isSelected: _selectedPage == 'Paramètres',
+            text: 'Parameters',
+            isSelected: _selectedPage == 'Parameters',
             onTap: () {
               widget.onSelectScreen(SettingsScreen());
-              _updateSelectedPage('Paramètres');
+              _updateSelectedPage('Parameters');
             },
           ),
         ],

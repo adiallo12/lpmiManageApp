@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:lpmi/login_screen.dart';
 import '../student_screen.dart';
 import '../offer_screen.dart';
 import '../setting_screen.dart';
 import '../home_screen.dart';
 import '../entreprise_screen.dart';
+import 'package:lpmi/signup_screen.dart';
 
 class SideMenu extends StatefulWidget {
   final Function(Widget) onSelectScreen;
@@ -76,6 +78,24 @@ class _SideMenuState extends State<SideMenu> {
             onTap: () {
               widget.onSelectScreen(SettingsScreen());
               _updateSelectedPage('Paramètres');
+            },
+          ),
+          _createDrawerItem(
+            icon: Icons.email,
+            text: 'S\'inscrire',
+            isSelected: _selectedPage == 'S\'inscrire',
+            onTap: () {
+              widget.onSelectScreen(SignupScreen());
+              _updateSelectedPage('S\'inscrire');
+            },
+          ),
+          _createDrawerItem(
+            icon: Icons.alternate_email_sharp,
+            text: 'Se connecter',
+            isSelected: _selectedPage == 'Se connecter',
+            onTap: () {
+              widget.onSelectScreen(LoginScreen());
+              _updateSelectedPage('Se connecter');
             },
           ),
         ],

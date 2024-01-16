@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "206856954095",
+    "project_id": "lpmimanageapp-8eef1",
+    "storage_bucket": "lpmimanageapp-8eef1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206856954095:android:08d002641d7f4e042a3b1a",
+        "android_client_info": {
+          "package_name": "fr.ub.lpmimanage.lpmi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfFyza6qne3IHIIbp6oKU-5ejTkjAiYt0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

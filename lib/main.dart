@@ -1,9 +1,23 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart'; // Add this import statement
+import 'package:lpmi/api.dart';
+import 'package:lpmi/controllers/login_controller.dart';
+import 'package:lpmi/controllers/register_controller.dart';
 import 'package:lpmi/dashboard_screen.dart';
-//import 'package:lpmi/introduction_screen.dart';
+import 'package:lpmi/firebase_options.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  initializeFirebase();
+
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (_) => LoginController()),
+    ChangeNotifierProvider(create: (_) => RegisterController()),
+  ], child: const MyApp()));
+  fetchNasaImageUrl().then((res) => print(res));
 }
 
 class MyApp extends StatelessWidget {
@@ -23,4 +37,10 @@ class MyApp extends StatelessWidget {
       //home: IntroductionScreen(),
     );
   }
+}
+
+void initializeFirebase() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 }

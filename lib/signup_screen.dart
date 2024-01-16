@@ -1,4 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:lpmi/controllers/login_controller.dart';
+import 'package:lpmi/controllers/register_controller.dart';
+import 'package:provider/provider.dart';
 
 class SignupScreen extends StatefulWidget {
   @override
@@ -7,6 +11,8 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   String _gender = 'Masculin';
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +43,13 @@ class _SignupScreenState extends State<SignupScreen> {
                   decoration: InputDecoration(
                       border: OutlineInputBorder(), labelText: 'Email'),
                   keyboardType: TextInputType.emailAddress,
+                  controller: emailController,
                 ),
                 SizedBox(height: 10),
                 TextFormField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(), labelText: 'Mot de passe'),
+                  controller: passwordController,
                   obscureText: true,
                 ),
                 SizedBox(height: 15),
@@ -73,13 +81,31 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 SizedBox(height: 30),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    final String email = emailController.text;
+                    final String password = passwordController.text;
+                    try {
+                      final res = await Provider.of<RegisterController>(context,
+                              listen: false)
+                          .register(email, password);
+                      // make a toast to say that the user is connected
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Vous avez bien été inscrit !!'),
+                          backgroundColor: Colors.green,
+                        ),
+                      );
+                    } catch (e) {
+                      // Handle error
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Erreur lors de la connexion: $e'),
+                          backgroundColor: Colors.red,
+                        ),
+                      );
+                    }
+                  },
                   child: Text('S\'inscrire'),
-                ),
-                SizedBox(height: 30),
-                TextButton(
-                  onPressed: () {},
-                  child: Text('Déjà un compte ? Se connecter'),
                 ),
               ],
             ),

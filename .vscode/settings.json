@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.embeddedhtml": "html",
+        "shared_prefs_helper": "cpp"
+    },
+    "cmake.sourceDirectory": "/home1/bm348739/Documents/lpmiManageApp/linux/flutter"
+}

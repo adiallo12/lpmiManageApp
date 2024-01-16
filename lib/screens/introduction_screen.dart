@@ -1,0 +1,59 @@
+import 'package:flutter/material.dart';
+import 'package:lpmi/screens/login_screen.dart';
+import 'package:lpmi/screens/register_screen.dart';
+import 'package:lpmi/modeles/image_nasa.dart';
+
+
+
+class IntroductionScreen extends StatefulWidget {
+  const IntroductionScreen({super.key});
+
+  @override
+  State<IntroductionScreen> createState() => _IntroductionScreenState();
+}
+
+class _IntroductionScreenState extends State<IntroductionScreen> {
+  @override
+  Widget build(BuildContext context) {
+    
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset("assets/image/logoUB.png", width: 150),
+            const SizedBox(height: 50),
+            const Text(
+              "Bienvenue sur l'application LPMI Manage",
+              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.blue),
+            ),
+            const SizedBox(height: 50),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const RegisterScreen())
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
+              ),
+              child: const Text("S'inscrire"),
+            ),
+            const SizedBox(
+              height: 24,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
+                ),
+                child: const Text("Se connecter"))
+          ],
+        ),
+      ),
+    );
+  }
+}

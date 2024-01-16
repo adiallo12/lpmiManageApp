@@ -1,94 +1,116 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:lpmi/firebase/LoginController.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(RegisterApp());
-}
+import '../firebase/RegistrationController.dart';
 
-class RegisterApp extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Register App',
-      home: RegisterScreen(),
-    );
-  }
+  _SignupScreenState createState() => _SignupScreenState();
 }
 
-class RegisterScreen extends StatefulWidget {
-  @override
-  _RegisterScreenState createState() => _RegisterScreenState();
-}
-
-class _RegisterScreenState extends State<RegisterScreen> {
-  final _formKey = GlobalKey<FormState>();
-  TextEditingController _nameController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+class _SignupScreenState extends State<SignupScreen> {
+  String _gender = 'Masculin';
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Register'),
+        title: Text('Inscription'),
+        centerTitle: true,
       ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              TextFormField(
-                controller: _nameController,
-                decoration: InputDecoration(labelText: 'Name'),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter your name';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _emailController,
-                decoration: InputDecoration(labelText: 'Email'),
-                validator: (value) {
-                  if (value!.isEmpty || !value.contains('@')) {
-                    return 'Please enter a valid email';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _passwordController,
-                decoration: InputDecoration(labelText: 'Password'),
-                obscureText: true,
-                validator: (value) {
-                  if (value!.isEmpty || value.length < 6) {
-                    return 'Password must be at least 6 characters';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    // Submit your data or perform other actions here
-                    // For example, you can access the form values like this:
-                    String name = _nameController.text;
-                    String email = _emailController.text;
-                    String password = _passwordController.text;
-
-                    // Process the registration data
-                    // For now, let's print the values
-                    print('Name: $name');
-                    print('Email: $email');
-                    print('Password: $password');
-                  }
-                },
-                child: Text('Register'),
-              ),
-            ],
+      body: Center(
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Container(
+            width: 300, // Largeur fixe pour la colonne
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                TextFormField(
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(), labelText: 'Nom'),
+                ),
+                SizedBox(height: 10),
+                TextFormField(
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(), labelText: 'Prénom'),
+                ),
+                SizedBox(height: 10),
+                TextFormField(
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(), labelText: 'Email'),
+                  keyboardType: TextInputType.emailAddress,
+                  controller: emailController,
+                ),
+                SizedBox(height: 10),
+                TextFormField(
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(), labelText: 'Mot de passe'),
+                  controller: passwordController,
+                  obscureText: true,
+                ),
+                SizedBox(height: 15),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(height: 30),
+                    Radio(
+                      value: 'Masculin',
+                      groupValue: _gender,
+                      onChanged: (value) {
+                        setState(() {
+                          _gender = value.toString();
+                        });
+                      },
+                    ),
+                    Text('Masculin'),
+                    Radio(
+                      value: 'Feminin',
+                      groupValue: _gender,
+                      onChanged: (value) {
+                        setState(() {
+                          _gender = value.toString();
+                        });
+                      },
+                    ),
+                    Text('Feminin'),
+                  ],
+                ),
+                SizedBox(height: 30),
+                ElevatedButton(
+                  onPressed: () async {
+                    final String email = emailController.text;
+                    final String password = passwordController.text;
+                    try {
+                      final res = await Provider.of<RegistrationController>(
+                              context,
+                              listen: false)
+                          .registerWithEmailAndPassword(email, password);
+                      // make a toast to say that the user is connected
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Vous avez bien été inscrit !!'),
+                          backgroundColor: Colors.green,
+                        ),
+                      );
+                    } catch (e) {
+                      // Handle error
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Erreur lors de la connexion: $e'),
+                          backgroundColor: Colors.red,
+                        ),
+                      );
+                    }
+                  },
+                  child: Text('S\'inscrire'),
+                ),
+              ],
+            ),
           ),
         ),
       ),

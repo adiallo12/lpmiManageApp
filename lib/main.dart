@@ -37,12 +37,7 @@ class MyApp extends StatelessWidget {
       ),
       //home: DashboardScreen(),
 
-      home: Stack(
-        children: [
-          DashboardScreen(),
-          IntroductionScreen(),
-        ],
-      ),
+      home: IntroductionScreen(),
     );
   }
 }

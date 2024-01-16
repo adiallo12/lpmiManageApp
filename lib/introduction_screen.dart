@@ -30,7 +30,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => RegisterScreen()),
+                  MaterialPageRoute(builder: (context) => SignupScreen()),
                 );
               },
               child: const Text("S'inscrire"),

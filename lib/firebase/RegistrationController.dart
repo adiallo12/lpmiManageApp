@@ -6,17 +6,17 @@ class RegistrationController extends ChangeNotifier {
   String _password = "";
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  Future<User?> registerWithEmailAndPassword() async {
+  Future<UserCredential> registerWithEmailAndPassword(
+      String email, String password) async {
     try {
-      final UserCredential userCredential =
+      UserCredential userCredential =
           await _auth.createUserWithEmailAndPassword(
         email: _email,
         password: _password,
       );
-      return userCredential.user;
+      return userCredential;
     } on FirebaseAuthException catch (e) {
       throw e;
-      return null;
     }
   }
 

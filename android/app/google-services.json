@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "712451979484",
+    "firebase_url": "https://lpmi-manage-62617-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "lpmi-manage-62617",
+    "storage_bucket": "lpmi-manage-62617.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712451979484:android:d170e3b3619adead9d9c19",
+        "android_client_info": {
+          "package_name": "fr.ub.lpmimanage.lpmi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi8n4egWFYokhDmbTjV-pXRGkGUdC0OeE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

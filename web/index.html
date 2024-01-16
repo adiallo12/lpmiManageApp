@@ -37,7 +37,26 @@
     const serviceWorkerVersion = null;
   </script>
   <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
+  <script src="flutter.js" defer>
+    // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAx1i5zhXcimR1a2cuHpVtrAXXvGHNzz38",
+  authDomain: "lpmi-manage-62617.firebaseapp.com",
+  databaseURL: "https://lpmi-manage-62617-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "lpmi-manage-62617",
+  storageBucket: "lpmi-manage-62617.appspot.com",
+  messagingSenderId: "712451979484",
+  appId: "1:712451979484:web:3c7a51b743c90f3e9d9c19"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+  </script>
 </head>
 <body>
   <script>

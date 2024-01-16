@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:lpmi/auth_controller.dart';
 import 'package:lpmi/screens/register_screen.dart';
 import 'package:lpmi/screens/home_screen.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final AuthController _authController = AuthController();
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +28,10 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const SizedBox(
+                SizedBox(
                   width: 300,
                   child: TextField(
+                    controller: emailController,
                     decoration: InputDecoration(
                       labelText: 'E-mail',
                       border: OutlineInputBorder(),
@@ -29,9 +40,10 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                const SizedBox(
+                SizedBox(
                   width: 300,
                   child: TextField(
+                    controller: passwordController,
                     decoration: InputDecoration(
                       labelText: 'Mot de passe',
                       border: OutlineInputBorder(),
@@ -44,16 +56,22 @@ class LoginScreen extends StatelessWidget {
                 ElevatedButton(
                   child: const Text("Se connecter"),
                   onPressed: () {
-                      Navigator.push(context, 
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                    _authController.signInWithEmailAndPassword(
+                      context,
+                      emailController.text,
+                      passwordController.text,
+                    );
                   },
                 ),
                 const SizedBox(height: 10),
                 TextButton(
                   child: const Text("Pas de compte ? S'inscrire"),
                   onPressed: () {
-                      Navigator.push(context, 
-                      MaterialPageRoute(builder: (context) => const RegisterScreen()));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const RegisterScreen()),
+                    );
                   },
                 ),
               ],

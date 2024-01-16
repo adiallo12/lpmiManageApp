@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lpmi/components/side_menu.dart';
+import 'package:provider/provider.dart';
+import 'package:lpmi/theme_provider.dart'; 
 
 class StudentScreen extends StatelessWidget {
   const StudentScreen({super.key});
@@ -9,6 +11,14 @@ class StudentScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Student'),
+           actions: [
+          IconButton(
+            icon: const Icon(Icons.lightbulb_outline),
+            onPressed: () {
+              Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+            },
+          ),
+        ],
       ),
       drawer: const SideMenu(),
       body: Center(

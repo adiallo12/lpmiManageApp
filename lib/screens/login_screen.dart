@@ -1,84 +1,110 @@
 import 'package:flutter/material.dart';
-import 'package:lpmi/auth_controller.dart';
-import 'package:lpmi/screens/register_screen.dart';
+import 'package:lpmi/controllers/login_controller.dart';
+import 'package:lpmi/controllers/register_controller.dart';
 import 'package:lpmi/screens/home_screen.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final AuthController _authController = AuthController();
-
   @override
   Widget build(BuildContext context) {
+    LoginController registerController =
+        Provider.of<LoginController>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Connexion"),
-      ),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(
-                  width: 300,
-                  child: TextField(
-                    controller: emailController,
-                    decoration: InputDecoration(
-                      labelText: 'E-mail',
-                      border: OutlineInputBorder(),
-                    ),
-                    keyboardType: TextInputType.emailAddress,
-                  ),
-                ),
-                const SizedBox(height: 20),
-                SizedBox(
-                  width: 300,
-                  child: TextField(
-                    controller: passwordController,
-                    decoration: InputDecoration(
-                      labelText: 'Mot de passe',
-                      border: OutlineInputBorder(),
-                    ),
-                    obscureText: true,
-                  ),
-                ),
-                const SizedBox(height: 30),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  child: const Text("Se connecter"),
-                  onPressed: () {
-                    _authController.signInWithEmailAndPassword(
-                      context,
-                      emailController.text,
-                      passwordController.text,
-                    );
-                  },
-                ),
-                const SizedBox(height: 10),
-                TextButton(
-                  child: const Text("Pas de compte ? S'inscrire"),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const RegisterScreen()),
-                    );
-                  },
-                ),
-              ],
-            ),
+        centerTitle: true,
+        title: const Text(
+          "Login",
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),
+      body: Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+              width: 300, 
+              child: TextFormField(
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(), labelText: 'Email'),
+                keyboardType: TextInputType.emailAddress,
+                onChanged: (value) {
+                  registerController.setEmail(value);
+                },
+              )),
+          const SizedBox(height: 20),
+          SizedBox(
+            width: 300, 
+            child: TextFormField(
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(), labelText: 'Mot de passe'),
+              onChanged: (value) {
+                registerController.setPassword(value);
+              },
+              obscureText: true,
+            ),
+          ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () async {
+              try {
+                final res = await registerController.Login();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Vous êtes bien connecté !!'),
+                    backgroundColor: Colors.green,
+                  ),
+                );
+                 Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        HomeScreen(), // Replace HomeScreen with the actual home screen widget
+                  ),
+                );
+              } catch (e) {
+                // Handle error
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Erreur lors de la connexion: $e'),
+                    backgroundColor: Colors.red,
+                  ),
+                );
+              }
+            },
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
+            ),
+            child: const Text("Login"),
+          ),
+          const SizedBox(height: 20),
+          GestureDetector(
+              onTap: () {
+                //Navigator.push(
+                //context,
+                //MaterialPageRoute(
+                //builder: (context) => const InscriptionScreen(),
+                //),
+                //);
+              },
+              child: const Text(
+                'Inscription',
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  color: Color.fromARGB(255, 107, 107, 107),
+                  fontSize: 16.0,
+                ),
+              ))
+        ],
+      )),
     );
   }
 }

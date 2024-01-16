@@ -5,7 +5,6 @@ import 'package:lpmi/theme_provider.dart';
 import 'package:lpmi/services/api.dart';
 import 'package:lpmi/utils/shared_pref_helper.dart';
 
-
 class OfferScreen extends StatelessWidget {
   const OfferScreen({Key? key});
   

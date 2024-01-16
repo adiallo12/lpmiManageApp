@@ -22,9 +22,7 @@ class RegisterController {
         );
       }
     } on FirebaseAuthException catch (e) {
-      // Handle registration errors
       print("Error: $e");
-      // Show a dialog, snackbar, or any other appropriate UI feedback to the user
     }
   }
 }

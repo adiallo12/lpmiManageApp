@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lpmi/register_controller.dart';
-import 'package:lpmi/screens/login_screen.dart';
+import 'package:lpmi/controllers/register_controller.dart';
 import 'package:lpmi/screens/home_screen.dart';
-import 'package:lpmi/utils/shared_pref_helper.dart';
+import 'package:provider/provider.dart';
+
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -13,116 +13,107 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   String _gender = 'Masculin';
-  final RegisterController _registerController = RegisterController();
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _firstNameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-
+ 
   @override
   Widget build(BuildContext context) {
+      RegisterController registerController =
+        Provider.of<RegisterController>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Inscription"),
         centerTitle: true,
       ),
-      body: Center(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(20.0),
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 400),
+       body: Center(
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Container(
+            width: 300, 
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: <Widget>[
                 TextFormField(
-                  controller: _nameController,
-                  decoration: const InputDecoration(
-                    labelText: "Nom",
-                    border: OutlineInputBorder(),
-                  ),
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(), labelText: 'Nom'),
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 10),
                 TextFormField(
-                  controller: _firstNameController,
-                  decoration: const InputDecoration(
-                    labelText: "Prénom",
-                    border: OutlineInputBorder(),
-                  ),
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(), labelText: 'Prénom'),
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 10),
                 TextFormField(
-                  controller: _emailController,
-                  decoration: const InputDecoration(
-                    labelText: "E-mail",
-                    border: OutlineInputBorder(),
-                  ),
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(), labelText: 'Email'),
                   keyboardType: TextInputType.emailAddress,
+                  onChanged: (value) {
+                    registerController.setEmail(value);
+                  },
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 10),
                 TextFormField(
-                  controller: _passwordController,
-                  decoration: const InputDecoration(
-                    labelText: "Mot de passe",
-                    border: OutlineInputBorder(),
-                  ),
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(), labelText: 'Mot de passe'),
+                  onChanged: (value) {
+                    registerController.setPassword(value);
+                  },
                   obscureText: true,
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 15),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Radio<String>(
+                  children: <Widget>[
+                    SizedBox(height: 30),
+                    Radio(
                       value: 'Masculin',
                       groupValue: _gender,
                       onChanged: (value) {
                         setState(() {
-                          _gender = value!;
+                          _gender = value.toString();
                         });
                       },
                     ),
-                    const Text('Masculin'),
-                    const SizedBox(
-                      width: 24,
-                    ),
-                    Radio<String>(
-                      value: 'Féminin',
+                    Text('Masculin'),
+                    Radio(
+                      value: 'Feminin',
                       groupValue: _gender,
                       onChanged: (value) {
                         setState(() {
-                          _gender = value!;
+                          _gender = value.toString();
                         });
                       },
                     ),
-                    const Text('Féminin'),
+                    Text('Feminin'),
                   ],
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 30),
                 ElevatedButton(
-                  onPressed: () {
-                    _registerController.registerWithEmailAndPassword(
-                      context,
-                      _emailController.text,
-                      _passwordController.text,
-                    );
+                  onPressed: () async {
+                    try {
+                      await registerController.register();
+                      // make a toast to say that the user is connected
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Vous avez bien été inscrit !!'),
+                          backgroundColor: Colors.green,
+                        ),
+                      );
+                       Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              HomeScreen(), // Replace HomeScreen with the actual home screen widget
+                        ),
+                      );
+                    } catch (e) {
+                      // Handle error
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Erreur lors de la connexion: $e'),
+                          backgroundColor: Colors.red,
+                        ),
+                      );
+                    }
                   },
-                  child: const Text("S'inscrire"),
-                ),
-                const SizedBox(height: 40),
-                TextButton(
-                  onPressed: () {
-                    SharePrefHelper.setUserName('test');
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const LoginScreen(),
-                      ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 50, vertical: 12),
-                  ),
-                  child: const Text("Déjà inscrit ? Connectez-vous"),
+                  child: Text('S\'inscrire'),
                 ),
               ],
             ),

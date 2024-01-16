@@ -11,11 +11,12 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   String _gender = 'Masculin';
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    RegisterController registerController =
+        Provider.of<RegisterController>(context, listen: false);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Inscription'),
@@ -43,13 +44,17 @@ class _SignupScreenState extends State<SignupScreen> {
                   decoration: InputDecoration(
                       border: OutlineInputBorder(), labelText: 'Email'),
                   keyboardType: TextInputType.emailAddress,
-                  controller: emailController,
+                  onChanged: (value) {
+                    registerController.setEmail(value);
+                  },
                 ),
                 SizedBox(height: 10),
                 TextFormField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(), labelText: 'Mot de passe'),
-                  controller: passwordController,
+                  onChanged: (value) {
+                    registerController.setPassword(value);
+                  },
                   obscureText: true,
                 ),
                 SizedBox(height: 15),
@@ -82,12 +87,8 @@ class _SignupScreenState extends State<SignupScreen> {
                 SizedBox(height: 30),
                 ElevatedButton(
                   onPressed: () async {
-                    final String email = emailController.text;
-                    final String password = passwordController.text;
                     try {
-                      final res = await Provider.of<RegisterController>(context,
-                              listen: false)
-                          .register(email, password);
+                      await registerController.register();
                       // make a toast to say that the user is connected
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(

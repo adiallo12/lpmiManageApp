@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 
 class LoginController extends ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  String _email = '';
+  String _password = '';
 
-  Future<UserCredential> signIn(String email, String password) async {
+  Future<UserCredential> Login() async {
     try {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
         email: email,
@@ -16,4 +18,9 @@ class LoginController extends ChangeNotifier {
       throw e;
     }
   }
+
+  String get email => _email;
+  String get password => _password;
+  void setEmail(String email) => _email = email;
+  void setPassword(String password) => _password = password;
 }

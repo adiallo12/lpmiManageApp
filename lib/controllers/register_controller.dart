@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 
 class RegisterController extends ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  String _email = "";
+  String _password = "";
 
-  Future<UserCredential> register(String email, String password) async {
+  Future<UserCredential> register() async {
     try {
       UserCredential userCredential =
           await _auth.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
+        email: _email,
+        password: _password,
       );
       return userCredential;
     } on FirebaseAuthException catch (e) {
@@ -17,4 +19,9 @@ class RegisterController extends ChangeNotifier {
       throw e;
     }
   }
+
+  String get email => _email;
+  String get password => _password;
+  void setEmail(String email) => _email = email;
+  void setPassword(String password) => _password = password;
 }

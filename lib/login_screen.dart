@@ -11,11 +11,10 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
+    LoginController registerController =
+        Provider.of<LoginController>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -37,7 +36,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 decoration: InputDecoration(
                     border: OutlineInputBorder(), labelText: 'Email'),
                 keyboardType: TextInputType.emailAddress,
-                controller: emailController,
+                onChanged: (value) {
+                  registerController.setEmail(value);
+                },
               )),
           const SizedBox(height: 20),
           SizedBox(
@@ -45,19 +46,17 @@ class _LoginScreenState extends State<LoginScreen> {
             child: TextFormField(
               decoration: InputDecoration(
                   border: OutlineInputBorder(), labelText: 'Mot de passe'),
-              controller: passwordController,
+              onChanged: (value) {
+                registerController.setPassword(value);
+              },
               obscureText: true,
             ),
           ),
           const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () async {
-              final String email = emailController.text;
-              final String password = passwordController.text;
               try {
-                final res =
-                    await Provider.of<LoginController>(context, listen: false)
-                        .signIn(email, password);
+                final res = await registerController.Login();
                 // make a toast to say that the user is connected
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(

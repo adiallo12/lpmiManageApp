@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'components/side_menu.dart';
 import 'student_screen.dart';
-import 'offer_screen.dart';
+import 'offers/screens/offer_screen.dart';
 import 'setting_screen.dart';
 import 'home_screen.dart';
 import 'entreprise_screen.dart';
